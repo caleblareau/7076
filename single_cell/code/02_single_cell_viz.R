@@ -20,13 +20,70 @@ import_day <- function(date){
   mdf %>% filter(cb %ni% multiplet & cov7076 > 10) %>%
     mutate(Day = Day_n)
   
+  mdf$multiplet <- mdf$cb %in% multiplet
+
+  mdf %>% mutate(Day = Day_n)
 }
 
+# Do some QC
 lapply(dates, import_day) %>% rbindlist() %>% data.frame() -> full_df
 table(full_df$Day)
+full_df <- full_df %>% filter(!multiplet)
+dim(full_df)
 
+# Create an ideal annotation
+full_df$annotation <- case_when(
+  full_df$predicted.celltype.l1 == "Mono" ~ "Mono",
+  full_df$predicted.celltype.l1 == "B" ~ "Bcell",
+  full_df$predicted.celltype.l2 == "CD4 TCM" ~ "CD4tcm",
+  full_df$predicted.celltype.l2 == "CD8 TEM" ~ "CD8tem",
+  full_df$predicted.celltype.l2 == "CD8 Naive" ~ "CD8naive",
+  full_df$predicted.celltype.l2 == "CD4 Naive" ~ "CD4naive",
+  full_df$predicted.celltype.l1 == "NK" ~ "NK",
+  TRUE ~ "other"
+)
+table(full_df$annotation )
+# Look at overall abundance
 p1 <- ggplot(full_df, aes(x = af7076*100)) +
   geom_histogram(bins = 11, fill = "lightgrey", color = "black") +
   pretty_plot(fontsize = 7) + scale_y_continuous(expand = c(0,0)) +
   L_border() + labs(x = "m.7076A>G heteroplasmy (%)", y = "single cell count")
+p1
 cowplot::ggsave2(p1, file = "../output/basic_histo_panelB.pdf", width = 1.5, height = 1.1)
+
+
+pSupplement <- ggplot(full_df %>%
+         group_by(predicted.celltype.l2) %>% mutate(count = n()) %>% filter(count > 100), aes(x = af7076*100)) +
+  geom_histogram(bins = 11, fill = "lightgrey", color = "black") +
+  pretty_plot(fontsize = 7) + scale_y_continuous(expand = c(0,0)) +
+  facet_wrap(~predicted.celltype.l2, scale = "free_y") +
+  labs(x = "m.7076A>G heteroplasmy (%)", y = "single cell count")
+
+cowplot::ggsave2(pSupplement, file = "../output/supplement_histogram.pdf", 
+                 width = 4, height = 3)
+
+ggplot(full_df  %>% filter(annotation != "other"), aes(x = af7076*100)) +
+  geom_histogram(bins = 11, fill = "lightgrey", color = "black") +
+  pretty_plot(fontsize = 7) + scale_y_continuous(expand = c(0,0)) +
+  facet_wrap(~annotation, scale = "free_y") +
+  labs(x = "m.7076A>G heteroplasmy (%)", y = "single cell count")
+
+full_df  %>% filter(annotation != "other") %>%
+  group_by(Day, annotation)  %>%
+  mutate(af7076 = af7076*100) %>%
+  summarize(maf = mean(af7076), sem = sd(af7076)/sqrt(n())) %>%
+  ggplot(aes(x = Day, y = maf, color = annotation)) +
+  geom_point(size = 0.3) + geom_line() +
+  geom_errorbar(aes(ymin=maf-sem, ymax=maf+sem), width=30,
+                position=position_dodge(.9)) +
+  geom_hline(yintercept = 47.3, linetype = 2, color = "black") + 
+  pretty_plot(fontsize = 6) + labs(x = "Day after initial sample", y = "Mean m.7076A>G heteroplasmy (%)") +
+  theme(legend.position = "bottom") + L_border() +
+  scale_color_manual(values = jdb_palette("corona")[c(5,2:4,1,6,7)]) -> plot_long
+cowplot::ggsave2(plot_long, width = 1.5, height = 2, filename = "../output/longitudinal_het.pdf")
+  
+
+# For supplement
+smoothScatter(full_df$cov7076,full_df$af7076*100, 
+               colramp = colorRampPalette(c("white", jdb_palette("solar_rojos"))), pch = NA,
+              xlab = "Coverage at m7076A>G", ylab = "Single-cell heteroplasmy") 
