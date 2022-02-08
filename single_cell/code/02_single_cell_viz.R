@@ -21,7 +21,7 @@ import_day <- function(date){
     mutate(Day = Day_n)
   
   mdf$multiplet <- mdf$cb %in% multiplet
-
+  
   mdf %>% mutate(Day = Day_n)
 }
 
@@ -42,7 +42,49 @@ full_df$annotation <- case_when(
   full_df$predicted.celltype.l1 == "NK" ~ "NK",
   TRUE ~ "other"
 )
-table(full_df$annotation )
+table(full_df$annotation)
+
+library(FNN)
+# Smooth in UMAP space
+n_nn <- 10
+nn_mat <- (data.matrix(
+  full_df$refUMAP_1, 
+  full_df$refUMAP_2
+) %>% get.knn(k = n_nn))$nn.index
+
+nn_het_mat <- matrix((full_df$af7076)[as.vector(nn_mat)], ncol = n_nn)
+full_df$roll_mean <- rowMeans(nn_het_mat)
+full_df$roll_mean_cut <- case_when(
+  full_df$roll_mean > 0.7 ~ 0.5,
+  full_df$roll_mean < 0.3~ 0.3,
+  TRUE ~ full_df$roll_mean
+)
+# Try making a UMAP viz first
+library(viridis)
+ggplot(full_df, aes(x = refUMAP_1, y = refUMAP_2, color = af7076)) +
+  geom_point() +
+  facet_wrap(~af7076 > 0.95)
+
+ggplot(full_df, aes(x = refUMAP_1, y = refUMAP_2, color = af7076)) +
+  geom_density_2d() +
+  facet_wrap(~af7076 > 0.95)
+
+ggplot(full_df, aes(x = refUMAP_1, y = refUMAP_2, color = af7076)) +
+  geom_point(size = 0.2) + scale_color_viridis()
+
+
+full_df$high <- full_df$af7076 > 0.95
+full_df$low <- full_df$af7076 < 0.05
+
+ggplot(full_df, aes(x = refUMAP_1, y = refUMAP_2, color = predicted.celltype.l2)) + 
+  geom_point() + scale_color_manual(values = jdb_palette("corona")) +
+  facet_wrap(~Day)
+
+
+ggplot(full_df, aes(x = refUMAP_1, y = refUMAP_2, color = predicted.celltype.l2)) + 
+  geom_point() + scale_color_manual(values = jdb_palette("corona")) +
+  facet_wrap(~Day)
+
 # Look at overall abundance
 p1 <- ggplot(full_df, aes(x = af7076*100)) +
   geom_histogram(bins = 11, fill = "lightgrey", color = "black") +
@@ -53,7 +95,7 @@ cowplot::ggsave2(p1, file = "../output/basic_histo_panelB.pdf", width = 1.5, hei
 
 
 pSupplement <- ggplot(full_df %>%
-         group_by(predicted.celltype.l2) %>% mutate(count = n()) %>% filter(count > 100), aes(x = af7076*100)) +
+                        group_by(predicted.celltype.l2) %>% mutate(count = n()) %>% filter(count > 100), aes(x = af7076*100)) +
   geom_histogram(bins = 11, fill = "lightgrey", color = "black") +
   pretty_plot(fontsize = 7) + scale_y_continuous(expand = c(0,0)) +
   facet_wrap(~predicted.celltype.l2, scale = "free_y") +
@@ -81,9 +123,9 @@ full_df  %>% filter(annotation != "other") %>%
   theme(legend.position = "bottom") + L_border() +
   scale_color_manual(values = jdb_palette("corona")[c(5,2:4,1,6,7)]) -> plot_long
 cowplot::ggsave2(plot_long, width = 1.5, height = 2, filename = "../output/longitudinal_het.pdf")
-  
+
 
 # For supplement
 smoothScatter(full_df$cov7076,full_df$af7076*100, 
-               colramp = colorRampPalette(c("white", jdb_palette("solar_rojos"))), pch = NA,
+              colramp = colorRampPalette(c("white", jdb_palette("solar_rojos"))), pch = NA,
               xlab = "Coverage at m7076A>G", ylab = "Single-cell heteroplasmy") 

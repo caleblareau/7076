@@ -1,0 +1,896 @@
+578	MT-TF	Unspecified patient from clinical lab / MS	T578C	tRNA Phe	nr	+	Reported	78.30% 
+								
+582	MT-TF	Mitochondrial myopathy	T582C	tRNA Phe	-	+	Reported	72.90% 
+								
+583	MT-TF	MELAS / MM & EXIT	G583A	tRNA Phe	-	+	Cfrm	Pathogenic 
+								
+586	MT-TF	"Extrapyramidal disorder with akinesia-rigidity, psychosis and SNHL"	G586A	tRNA Phe	-	+	Reported	89.70% 
+								
+590	MT-TF	EXIT+ataxia+RP	A590G	tRNA Phe	-	+	Reported	16.30% 
+								
+593	MT-TF	Nonsyndromic hearing loss / LHON	T593C	tRNA Phe	+	-	Reported	0.80% 
+								
+602	MT-TF	Axial myopathy with encephalopathy	C602T	tRNA Phe	-	+	Reported	85.90% 
+								
+606	MT-TF	Myoglobinuria	A606G	tRNA Phe	+	+	Unclear	64.90% 
+								
+608	MT-TF	Tubulo-interstitial nephritis	A608G	tRNA Phe	+	-	Reported	65.00% 
+								
+611	MT-TF	MERRF	G611A	tRNA Phe	nr	+	Reported	51.20% 
+								
+616	MT-TF	Maternally inherited epilepsy / mito tubulointerstitial kidney disease (MITKD)	T616C	tRNA Phe	+	+	Cfrm	Pathogenic 
+								
+616	MT-TF	Maternally inherited epilepsy	T616G	tRNA Phe	+	+	Reported	95.60% 
+								
+617	MT-TF	Carotid artery stenosis	G617A	tRNA Phe	-	+	Reported	81.70% 
+								
+618	MT-TF	MM	T618C	tRNA Phe	-	+	Reported	65.80% 
+								
+618	MT-TF	Ptosis CPEO MM & EXIT	T618G	tRNA Phe	-	+	Reported	77.50% 
+								
+622	MT-TF	EXIT & Deafness	G622A	tRNA Phe	-	+	Reported	41.50% 
+								
+625	MT-TF	SNHL & Epilepsy	G625A	tRNA Phe	-	+	Reported	81.30% 
+								
+628	MT-TF	DEAF	C628T	tRNA Phe	-	+	Reported	34.80% 
+								
+636	MT-TF	DEAF	A636G	tRNA Phe	+	-	Reported	1.30% 
+								
+641	MT-TF	Epileptic Encephalopathy	A641T	tRNA Phe	-	+	Reported	69.00% 
+								
+642	MT-TF	"Ataxia, PEO, deafness"	T642C	tRNA Phe	-	+	Reported	67.60% 
+								
+653	MT-RNR1	Atherosclerosis risk	G653del	12S rRNA	-	+	Reported	N/A
+								
+653	MT-RNR1	Atherosclerosis study	G653GG	12S rRNA	-	+	Reported	N/A
+								
+663	MT-RNR1	Coronary atherosclerosis risk	A663G	12S rRNA	+	-	Reported	N/A
+								
+669	MT-RNR1	DEAF	T669C	12S rRNA	+	-	Reported	N/A
+								
+721	MT-RNR1	Possibly LVNC-associated	T721C	12S rRNA	+	-	Reported	N/A
+								
+735	MT-RNR1	DEAF	A735G	12S rRNA	nr	nr	Reported	N/A
+								
+745	MT-RNR1	DEAF-associated	A745G	12S rRNA	+	-	Reported	N/A
+								
+750	MT-RNR1	SZ-associated	A750A	12S rRNA	+	-	Reported	N/A
+								
+773	MT-RNR1	Possible association with sepsis	T773C	12S rRNA	-	+	Reported	N/A
+								
+792	MT-RNR1	Increased risk of nonsyndromic deafness	C792T	12S rRNA	+	-	Reported	N/A
+								
+801	MT-RNR1	DEAF-associated	A801G	12S rRNA	+	-	Reported	N/A
+								
+827	MT-RNR1	DEAF	A827G	12S rRNA	+	-	Conflicting reports	N/A
+								
+839	MT-RNR1	DEAF-associated	A839G	12S rRNA	+	-	Reported	N/A
+								
+850	MT-RNR1	Possibly LVNC-associated	T850C	12S rRNA	+	-	Reported	N/A
+								
+856	MT-RNR1	LHON helper / AD / DEAF-associated	A856G	12S rRNA	+	-	Reported	N/A
+								
+869	MT-RNR1	found in 1 HCM patient	C869T	12S rRNA	+	-	Reported	N/A
+								
+921	MT-RNR1	Possibly LVNC-associated	T921C	12S rRNA	+	-	Reported	N/A
+								
+955	MT-RNR1	Possible association with sepsis	A955C	12S rRNA	-	+	Reported	N/A
+								
+960	MT-RNR1	Possibly DEAF-associated	C960del	12S rRNA	+	-	Reported	N/A
+								
+960	MT-RNR1	Possibly DEAF-associated	C960CC	12S rRNA	+	-	Reported	N/A
+								
+961	MT-RNR1	"DEAF, possibly LVNC-associated"	T961C	12S rRNA	+	-	Unclear	N/A
+								
+961	MT-RNR1	DEAF / AD-associated / intellectual disability	T961delT+ / -C(n)ins	12S rRNA	+	+	Unclear	N/A
+								
+961	MT-RNR1	Possibly DEAF-associated	T961G	12S rRNA	+	-	Unclear	N/A
+								
+965	MT-RNR1	DEAF	T965TC	12S rRNA	+	-	Unclear	N/A
+								
+988	MT-RNR1	Possible DEAF risk factor	G988A	12S rRNA	nr	nr	Reported	N/A
+								
+990	MT-RNR1	DEAF	T990C	12S rRNA	+	-	Reported	N/A
+								
+1005	MT-RNR1	DEAF	T1005C	12S rRNA	+	-	Unclear	N/A
+								
+1027	MT-RNR1	DEAF-associated	A1027G	12S rRNA	+	-	Reported	N/A
+								
+1095	MT-RNR1	SNHL	T1095C	12S rRNA	+	+	Unclear	N/A
+								
+1116	MT-RNR1	DEAF	A1116G	12S rRNA	+	-	Reported	N/A
+								
+1119	MT-RNR1	Possible role in high altitude sickness	T1119C	12S rRNA	nr	nr	Reported	N/A
+								
+1180	MT-RNR1	Possibly DEAF-associated	T1180G	12S rRNA	+	-	Reported	N/A
+								
+1192	MT-RNR1	DEAF-associated	C1192A	12S rRNA	+	-	Reported	N/A
+								
+1192	MT-RNR1	DEAF-associated	C1192T	12S rRNA	+	-	Reported	N/A
+								
+1226	MT-RNR1	Possibly DEAF-associated	C1226G	12S rRNA	+	-	Reported	N/A
+								
+1291	MT-RNR1	DEAF	T1291C	12S rRNA	+	-	Unclear	N/A
+								
+1310	MT-RNR1	DEAF-associated	C1310T	12S rRNA	+	-	Reported	N/A
+								
+1331	MT-RNR1	DEAF-associated	A1331G	12S rRNA	+	-	Reported	N/A
+								
+1349	MT-RNR1	DEAF	T1349G	12S rRNA	-	+	Reported	N/A
+								
+1374	MT-RNR1	DEAF-associated	A1374G	12S rRNA	+	-	Reported	N/A
+								
+1382	MT-RNR1	Longevity / T2D susceptibility	A1382C	12S rRNA	+	-	Reported	N/A
+								
+1391	MT-RNR1	found in 1 HCM patient	T1391C	12S rRNA	+	+	Reported	N/A
+								
+1420	MT-RNR1	DEAF	T1420G	12S rRNA	+	+	Reported	N/A
+								
+1438	MT-RNR1	SZ-associated	A1438A	12S rRNA	+	-	Reported	N/A
+								
+1452	MT-RNR1	DEAF-associated	T1452C	12S rRNA	+	-	Reported	N/A
+								
+1453	MT-RNR1	Possible DEAF risk factor	A1453G	12S rRNA	nr	nr	Reported	N/A
+								
+1492	MT-RNR1	DEAF	A1492C	12S rRNA	-	+	Reported	N/A
+								
+1494	MT-RNR1	DEAF	C1494T	12S rRNA	+	-	Cfrm	N/A
+								
+1517	MT-RNR1	DEAF	A1517C	12S rRNA	-	+	Reported	N/A
+								
+1537	MT-RNR1	DEAF; intellectual disability	C1537T	12S rRNA	+	-	Reported	N/A
+								
+1544	MT-RNR1	DEAF	A1544T	12S rRNA	+	-	Reported	N/A
+								
+1546	MT-RNR1	DEAF	A1546T	12S rRNA	+	-	Reported	N/A
+								
+1554	MT-RNR1	DEAF	G1554A	12S rRNA	+	-	Reported	N/A
+								
+1555	MT-RNR1	DEAF; autism spectrum intellectual disability; possibly antiatherosclerotic	A1555G	12S rRNA	+	+	Cfrm	N/A
+								
+1556	MT-RNR1	found in 1 HCM patient	C1556T	12S rRNA	+	-	Reported	N/A
+								
+1575	MT-RNR1	DEAF	T1575G	12S rRNA	+	-	Reported	N/A
+								
+1577	MT-RNR1	DEAF	T1577G	12S rRNA	-	+	Reported	N/A
+								
+1606	MT-TV	AMDF	G1606A	tRNA Val	-	+	Cfrm	Pathogenic 
+								
+1607	MT-TV	Suspected mito disease	T1607C	tRNA Val	+	+	Reported	18.10% 
+								
+1612	MT-TV	LVNC (left ventricular noncompaction)	C1612T	tRNA Val	+	-	Reported (VUS)	76.50% 
+								
+1616	MT-TV	MELAS	A1616G	tRNA Val	nr	nr	Reported	36.70% 
+								
+1624	MT-TV	Leigh Syndrome	C1624T	tRNA Val	+	-	Reported	68.70% 
+								
+1630	MT-TV	MNGIE-like disease / MELAS	A1630G	tRNA Val	-	+	Cfrm	Pathogenic 
+								
+1640	MT-TV	MELAS	A1640G	tRNA Val	+	+	Reported	6.70% 
+								
+1642	MT-TV	MELAS	G1642A	tRNA Val	-	+	Reported	74.30% 
+								
+1643	MT-TV	Late infantile onset fatal mito disease	A1643G	tRNA Val	+	+	Reported	42.00% 
+								
+1644	MT-TV	Leigh Syndrome / HCM / MELAS	G1644A	tRNA Val	-	+	Cfrm	Pathogenic 
+								
+1644	MT-TV	Adult Leigh Syndrome	G1644T	tRNA Val	-	+	Reported	48.40% 
+								
+1659	MT-TV	Movement Disorder	T1659C	tRNA Val	-	+	Reported	69.60% 
+								
+1661	MT-TV	Charcot Marie Tooth (CMT)	A1661G	tRNA Val	+	-	Reported	27.60% 
+								
+2156	MT-RNR2	Possible association with sepsis	A2156AA	16S rRNA	-	+	Reported	N/A
+								
+2158	MT-RNR2	Reduced risk PD	T2158C	16S rRNA	nr	nr	Reported	N/A
+								
+2336	MT-RNR2	Hypertrophic cardiomyopathy	T2336C	16S rRNA	+	-	Reported	N/A
+								
+2352	MT-RNR2	Possibly LVNC-associated	T2352C	16S rRNA	+	-	Reported	N/A
+								
+2361	MT-RNR2	Possibly LVNC-associated	G2361A	16S rRNA	+	-	Reported	N/A
+								
+2492	MT-RNR2	Possible association with sepsis	G2492A	16S rRNA	-	+	Reported	N/A
+								
+2639	MT-RNR2	Rare mutation in a single POAG patient	C2639A	16S rRNA	+	-	Reported	N/A
+								
+2647	MT-RNR2	Possible association with sepsis	G2647A	16S rRNA	-	+	Reported	N/A
+								
+2648	MT-RNR2	Rett Syndrome	T2648C	16S rRNA	nr	nr	Reported	N/A
+								
+2706	MT-RNR2	Increased risk of T2DM in haplogroup H	A2706A	16S rRNA	+	-	Reported	N/A
+								
+2755	MT-RNR2	Possibly LVNC-associated	A2755G	16S rRNA	+	-	Reported	N/A
+								
+2806	MT-RNR2	Possible association with sepsis	T2806A	16S rRNA	-	+	Reported	N/A
+								
+2835	MT-RNR2	Rett Syndrome	C2835T	16S rRNA	-	+	Reported	N/A
+								
+3010	MT-RNR2	Cyclic Vomiting Syndrome with Migraine / high altitude adaptation	G3010A	16S rRNA	+	-	Reported	N/A
+								
+3054	MT-RNR2	Possible association with sepsis	G3054A	16S rRNA	-	+	Reported	N/A
+								
+3090	MT-RNR2	Myopathy	G3090A	16S rRNA	-	+	Reported	N/A
+								
+3093	MT-RNR2	MELAS	C3093G	16S rRNA	-	+	Reported	N/A
+								
+3096	MT-RNR2	Possible association with sepsis	T3096C	16S rRNA	-	+	Reported	N/A
+								
+3098	MT-RNR2	Possible association with sepsis	T3098C	16S rRNA	-	+	Reported	N/A
+								
+3111	MT-RNR2	Migraine	A3111T	16S rRNA	+	-	Reported	N/A
+								
+3196	MT-RNR2	ADPD	G3196A	16S rRNA	+	+	Reported	N/A
+								
+3236	MT-TL1	Sporadic bilateral optic neuropathy / hearing loss	A3236G	tRNA Leu (UUR)	nr	nr	Reported	37.80% 
+								
+3242	MT-TL1	MM / HCM+renal tubular dysfunction	G3242A	tRNA Leu (UUR)	+	+	Reported	18.50% 
+								
+3243	MT-TL1	MELAS / Leigh Syndrome / DMDF / MIDD / SNHL / CPEO / MM / FSGS / ASD / Cardiac+multi-organ dysfunction	A3243G	tRNA Leu (UUR)	-	+	Cfrm	Pathogenic 
+								
+3243	MT-TL1	MM / MELAS / SNHL / CPEO	A3243T	tRNA Leu (UUR)	-	+	Cfrm	Pathogenic 
+								
+3244	MT-TL1	MELAS	G3244A	tRNA Leu (UUR)	-	+	Reported	41.60% 
+								
+3249	MT-TL1	KSS	G3249A	tRNA Leu(UUR)	-	+	Reported	39.30% 
+								
+3250	MT-TL1	MM / CPEO	T3250C	tRNA Leu (UUR)	-	+	Reported	33.40% 
+								
+3251	MT-TL1	MM / MELAS with chorea-ballism	A3251G	tRNA Leu (UUR)	-	+	Reported	43.50% 
+								
+3252	MT-TL1	MELAS	A3252G	tRNA Leu (UUR)	-	+	Reported	39.40% 
+								
+3252	MT-TL1	EXIT	A3252T	tRNA Leu (UUR)	-	+	Reported	39.40% 
+								
+3253	MT-TL1	Maternally inherited hypertension	T3253C	tRNA Leu (UUR)	+	-	Reported	0.40% 
+								
+3254	MT-TL1	Gestational Diabetes (GDM)	C3254A	tRNA Leu (UUR)	-	+	Reported	60.80% 
+								
+3254	MT-TL1	MM	C3254G	tRNA Leu (UUR)	-	+	Reported	60.80% 
+								
+3254	MT-TL1	CPEO / poss. hypertension factor	C3254T	tRNA Leu (UUR)	+	-	Reported	25.30% 
+								
+3255	MT-TL1	MERRF / KSS overlap	G3255A	tRNA Leu (UUR)	-	+	Reported	75.80% 
+								
+3256	MT-TL1	MELAS; possible atherosclerosis risk	C3256T	tRNA Leu (UUR)	-	+	Cfrm	Pathogenic 
+								
+3258	MT-TL1	MELAS / Myopathy	T3258C	tRNA Leu (UUR)	-	+	Cfrm	Pathogenic 
+								
+3260	MT-TL1	MMC / MELAS	A3260G	tRNA Leu (UUR)	-	+	Cfrm	Pathogenic 
+								
+3264	MT-TL1	DM	T3264C	tRNA Leu (UUR)	-	+	Reported	47.30% 
+								
+3271	MT-TL1	MELAS / DM	T3271C	tRNA Leu (UUR)	-	+	Cfrm	Pathogenic 
+								
+3273	MT-TL1	PEM / retinal dystrophy in MELAS	T3273del	tRNA Leu (UUR)	-	+	Cfrm	Pathogenic 
+								
+3273	MT-TL1	Ocular myopathy	T3273C	tRNA Leu (UUR)	-	+	Reported	71.20% 
+								
+3274	MT-TL1	Neuropsychiatric syndrome + cataract	A3274G	tRNA Leu (UUR)	-	+	Reported	77.10% 
+								
+3275	MT-TL1	LHON	C3275A	tRNA Leu (UUR)	+	-	Reported	2.20% 
+								
+3275	MT-TL1	Metabolic syndrome and polycystic ovary syndrome / LHON	C3275T	tRNA Leu (UUR)	+	-	Reported	2.20% 
+								
+3277	MT-TL1	Poss. hypertension factor	G3277A	tRNA Leu (UUR)	+	-	Reported	2.90% 
+								
+3278	MT-TL1	Poss. hypertension factor	T3278C	tRNA Leu (UUR)	+	-	Reported	13.10% 
+								
+3280	MT-TL1	Myopathy	A3280G	tRNA Leu (UUR)	-	+	Cfrm	Pathogenic 
+								
+3283	MT-TL1	Late onset ocular myopathy	G3283A	tRNA Leu (UUR)	-	+	Reported	58.70% 
+								
+3287	MT-TL1	Encephalomyopathy	C3287A	tRNA Leu (UUR)	-	+	Reported	38.30% 
+								
+3288	MT-TL1	Myopathy	A3288G	tRNA Leu (UUR)	-	+	Reported	36.10% 
+								
+3290	MT-TL1	Poss. hypertension factor	T3290C	tRNA Leu (UUR)	+	-	Reported	1.40% 
+								
+3291	MT-TL1	MELAS / Myopathy / Deafness+Cognitive Impairment	T3291C	tRNA Leu (UUR)	-	+	Cfrm	Pathogenic 
+								
+3302	MT-TL1	MM	A3302G	tRNA Leu (UUR)	-	+	Cfrm	Pathogenic 
+								
+3303	MT-TL1	MMC	C3303T	tRNA Leu (UUR)	+	+	Cfrm	Pathogenic 
+								
+4263	MT-TI	Maternally inherited essential hypertension	A4263G	tRNA Ile	+	-	Reported	67.80% 
+								
+4267	MT-TI	MM / CPEO	A4267G	tRNA Ile	-	+	Reported	71.10% 
+								
+4269	MT-TI	FICP	A4269G	tRNA Ile	-	+	Reported	82.80% 
+								
+4274	MT-TI	CPEO / Motor Neuron Disease	T4274C	tRNA Ile	-	+	Reported	85.50% 
+								
+4277	MT-TI	HCM / Poss. hypertension factor	T4277C	tRNA Ile	+	-	Reported	8.90% 
+								
+4279	MT-TI	Myoclonic epilepsy	A4279G	tRNA Ile	-	+	Reported	54.90% 
+								
+4281	MT-TI	Recurrent Myoglobinuria	A4281G	tRNA Ile	-	+	Reported	87.90% 
+								
+4282	MT-TI	CPEO Plus	G4282A	tRNA Ile	-	+	Reported	82.30% 
+								
+4284	MT-TI	Varied familial presentation / spastic paraparesis	G4284A	tRNA Ile	-	+	Reported	35.30% 
+								
+4285	MT-TI	CPEO	T4285C	tRNA Ile	-	+	Reported	84.80% 
+								
+4289	MT-TI	Retinopathy+diabetes+dysphagia+cerebral atrophy	T4289C	tRNA Ile	-	+	Reported	84.30% 
+								
+4290	MT-TI	"Progressive Encephalopathy / PEO,myopathy"	T4290C	tRNA Ile	+	+	Reported	47.70% 
+								
+4291	MT-TI	Hypomagnesemic Metabolic Syndrome	T4291C	tRNA Ile	+	-	Reported	31.80% 
+								
+4295	MT-TI	MHCM / Maternally inherited hypertension / Maternally inherited deafness	A4295G	tRNA Ile	+	+	Reported	44.00% 
+								
+4296	MT-TI	Leigh Syndrome	G4296A	tRNA Ile	-	+	Reported	46.60% 
+								
+4298	MT-TI	CPEO / MS	G4298A	tRNA Ile	-	+	Cfrm	Pathogenic 
+								
+4300	MT-TI	MICM	A4300G	tRNA Ile	+	+	Cfrm	Pathogenic 
+								
+4301	MT-TI	Patient with MELAS	A4301T	tRNA Ile	nr	nr	Reported	59.50% 
+								
+4302	MT-TI	CPEO	A4302G	tRNA Ile	-	+	Reported	42.00% 
+								
+4308	MT-TI	CPEO	G4308A	tRNA Ile	-	+	Cfrm	Pathogenic 
+								
+4309	MT-TI	CPEO	G4309A	tRNA Ile	-	+	Reported	64.10% 
+								
+4314	MT-TI	Poss. hypertension factor	T4314C	tRNA Ile	+	-	Reported	1.70% 
+								
+4316	MT-TI	HCM with hearing loss / poss. hypertension factor	A4316G	tRNA Ile	+	+	Reported	37.10% 
+								
+4317	MT-TI	"Ptosis, deafness, stroke-like episodes"	A4317del	tRNA Ile	nr	nr	Reported	2.10% 
+								
+4317	MT-TI	FICP / poss. Hypertension / DEAF factor	A4317G	tRNA Ile	+	-	Reported	2.10% 
+								
+4320	MT-TI	Mitochondrial Encephalocardiomyopathy	C4320T	tRNA Ile	-	+	Reported	25.60% 
+								
+4322	MT-TI	mtDNA deletion and depletion with dilated cardiomyopathy	C4322del	tRNA Ile	+	-	Reported	88.10% 
+								
+4322	MT-TI	Idiopathic Dilated Cardiomopathy	C4322CC	tRNA Ile	-	+	Reported	-
+								
+4327	MT-TI	"Ataxia+, with RRF and COX deficiency"	T4327C	tRNA Ile	-	+	Reported	71.00% 
+								
+4332	MT-TQ	Encephalopathy / MELAS	G4332A	tRNA Gln	-	+	Cfrm	Pathogenic 
+								
+4336	MT-TQ	ADPD / Hearing Loss & Migraine / autism spectrum / intellectual disability	T4336C	tRNA Gln	+	+	Unclear	37.30% 
+								
+4343	MT-TQ	Poss. hypertension factor	A4343G	tRNA Gln	+	-	Reported	5.10% 
+								
+4345	MT-TQ	Poss. hypertension factor	C4345T	tRNA Gln	+	-	Reported	13.20% 
+								
+4353	MT-TQ	Poss. hypertension factor	T4353C	tRNA Gln	+	-	Reported	31.60% 
+								
+4363	MT-TQ	Metabolic syndrome and polycystic ovary syndrome / possibly associated w DEAF + RP + dev delay / hypertension / LHON	T4363C	tRNA Gln	+	-	Reported	9.50% 
+								
+4369	MT-TQ	Myopathy	A4369AA	tRNA Gln	-	+	Reported	-
+								
+4372	MT-TQ	Suspected mito disease	C4372T	tRNA Gln	-	+	Reported	71.30% 
+								
+4373	MT-TQ	Tic disorder / possibly LVNC-associated	T4373C	tRNA Gln	+	-	Reported	29.10% 
+								
+4375	MT-TQ	Matrilineal hypertension risk factor	C4375T	tRNA Gln	nr	nr	Reported	17.30% 
+								
+4381	MT-TQ	LHON	A4381G	tRNA Gln	+	-	Reported	15.30% 
+								
+4386	MT-TQ	Heart disease / myopathy / hypertension	T4386C	tRNA Gln	+	-	Conflicting reports	6.90% 
+								
+4387	MT-TQ	Poss. hypertension factor	C4387A	tRNA Gln	+	-	Reported	12.80% 
+								
+4388	MT-TQ	Poss. hypertension factor; intellectual disability	A4388G	tRNA Gln	+	-	Reported	0.10% 
+								
+4392	MT-TQ	Poss. hypertension factor	C4392T	tRNA Gln	+	-	Reported	15.70% 
+								
+4395	MT-TQ	Poss. hypertension factor	A4395G	tRNA Gln	+	-	Reported	0.20% 
+								
+4401	MT-NC2	Hypertension+Ventricular Hypertrophy	A4401G	NC2 Gln-Met spacer	+	-	Reported	N/A
+								
+4403	MT-TM	Mitochondrial myopathy	G4403A	tRNA Met	-	+	Reported	84.80% 
+								
+4409	MT-TM	Mitochondrial myopathy	T4409C	tRNA Met	-	+	Reported	46.50% 
+								
+4410	MT-TM	Poss. hypertension factor	C4410A	tRNA Met	+	-	Reported	32.90% 
+								
+4412	MT-TM	Seizures with myopathy & retinopathy	G4412A	tRNA Met	-	+	Reported	76.50% 
+								
+4414	MT-TM	Progressive external ophthalmoplegia and myopathy	T4414C	tRNA Met	-	+	Reported	86.40% 
+								
+4415	MT-TM	EXIT & APS2	A4415G	tRNA Met	-	+	Reported	44.10% 
+								
+4435	MT-TM	LHON / LHON modulator / hypertension; autism spectrum; intellectual disability / hearing loss	A4435G	tRNA Met	+	-	Reported	13.80% 
+								
+4437	MT-TM	"Hypotonia, seizure, muscle weakness, lactic acidosis, hearing loss"	C4437T	tRNA Met	+	-	Reported	67.20% 
+								
+4440	MT-TM	Mitochondrial myopathy	G4440A	tRNA Met	-	+	Reported	58.20% 
+								
+4450	MT-TM	Myopathy / MELAS / Leigh Syndrome	G4450A	tRNA Met	-	+	Cfrm	Pathogenic 
+								
+4452	MT-TM	Reported in tic disorder patient	T4452C	tRNA Met	nr	nr	Reported	7.20% 
+								
+4454	MT-TM	Possible contributor to mito dysfunction / hypertension	T4454C	tRNA Met	+	-	Reported	0.80% 
+								
+4456	MT-TM	Poss. hypertension factor	C4456T	tRNA Met	-	+	Reported	32.00% 
+								
+4467	MT-TM	Maternally inherited hypertension	C4467A	tRNA Met	-	+	Reported	75.60% 
+								
+5512	MT-TW	Maternally inherited hypertension	A5512G	tRNA Trp	+	-	Reported	38.60% 
+								
+5513	MT-TW	Mitochondrial encephalomyopathy with RP	G5513A	tRNA Trp	-	+	Reported	32.60% 
+								
+5514	MT-TW	Neonatal onset mito disease	A5514G	tRNA Trp	+	-	Reported	19.70% 
+								
+5521	MT-TW	Mitochondrial myopathy	G5521A	tRNA Trp	-	+	Cfrm	Pathogenic 
+								
+5522	MT-TW	Mitochondrial myopathy	G5522A	tRNA Trp	-	+	Reported	83.00% 
+								
+5523	MT-TW	Leigh Syndrome	T5523G	tRNA Trp	-	+	Reported	80.90% 
+								
+5532	MT-TW	Gastrointestinal Syndrome	G5532A	tRNA Trp	-	+	Reported	19.40% 
+								
+5537	MT-TW	Leigh Syndrome	A5537insT	tRNA Trp	-	+	Cfrm	-
+								
+5538	MT-TW	Encephalomyopathy	G5538A	tRNA Trp	-	+	Reported	76.70% 
+								
+5540	MT-TW	Encephalomyopathy / DEAF	G5540A	tRNA Trp	-	+	Reported	73.70% 
+								
+5541	MT-TW	MELAS+stroke-like episodes and cortical blindness+MRI shows occipital lobe infarct	C5541T	tRNA Trp	-	+	Reported	84.30% 
+								
+5543	MT-TW	Mitochondrial myopathy	T5543C	tRNA Trp	-	+	Reported	47.30% 
+								
+5545	MT-TW	HCM severe multisystem disorder	C5545T	tRNA Trp	-	+	Reported	53.00% 
+								
+5549	MT-TW	DEMCHO	G5549A	tRNA Trp	-	+	Reported	83.30% 
+								
+5556	MT-TW	Combined OXPHOS defects	G5556A	tRNA Trp	-	+	Reported	44.50% 
+								
+5556	MT-TW	Mito encephalomyopathy	G5556C	tRNA Trp	-	+	Reported	44.50% 
+								
+5558	MT-TW	Reported in tic disorder patient	A5558G	tRNA Trp	nr	nr	Reported	31.70% 
+								
+5559	MT-TW	Leigh Syndrome	A5559G	tRNA Trp	-	+	Reported	70.10% 
+								
+5567	MT-TW	Myopathy	T5567C	tRNA Trp	-	+	Reported	32.70% 
+								
+5568	MT-TW	DEAF	A5568G	tRNA Trp	+	-	Reported	9.70% 
+								
+5587	MT-TA	LHON / possible DEAF modifier / dilated cardiomyopathy / hypertension / tic disorder	T5587C	tRNA Ala	+	+	Reported	12.10% 
+								
+5591	MT-TA	Myopathy	G5591A	tRNA Ala	-	+	Reported	68.40% 
+								
+5592	MT-TA	Coronary Heart Disease	A5592G	tRNA Ala	+	-	Reported	0.40% 
+								
+5595	MT-TA	Reported in tic disorder patient	G5595A	tRNA Ala	nr	nr	Reported	64.60% 
+								
+5601	MT-TA	Possible 4435G helper in maternally inherited hypertension	C5601T	tRNA Ala	+	-	Reported	4.20% 
+								
+5610	MT-TA	Myopathy	G5610A	tRNA Ala	-	+	Reported	38.70% 
+								
+5613	MT-TA	CPEO	T5613C	tRNA Ala	-	+	Reported	59.30% 
+								
+5618	MT-TA	Hearing loss patient	T5618C	tRNA Ala	nr	nr	Reported	28.30% 
+								
+5628	MT-TA	CPEO / DEAF enhancer / gout / tic disorder	T5628C	tRNA Ala	-	+	Reported	78.90% 
+								
+5631	MT-TA	Myopathy	G5631A	tRNA Ala	-	+	Reported	43.40% 
+								
+5636	MT-TA	PEO	T5636C	tRNA Ala	-	+	Reported	73.50% 
+								
+5641	MT-TA	Hearing loss patient	T5641C	tRNA Ala	nr	nr	Reported	28.40% 
+								
+5650	MT-TA	Myopathy	G5650A	tRNA Ala	-	+	Cfrm	Pathogenic 
+								
+5652	MT-TA	Dilated Cardiomyopathy	C5652G	tRNA Ala	+	-	Reported	69.90% 
+								
+5655	MT-TA	DEAF enhancer / Hypertension risk	T5655C	tRNA Ala	+	-	Reported	26.70% 
+								
+5658	MT-TN	Mitochondrial myopathy	T5658C	tRNA Asn	-	+	Reported	94.30% 
+								
+5667	MT-TN	Ptosis	G5667A	tRNA Asn	nr	nr	Reported	44.60% 
+								
+5669	MT-TN	Sporadic CPEO	G5669A	tRNA Asn	-	+	Reported	88.50% 
+								
+5672	MT-TN	EXIT+myalgia+CPEO with RRF	T5672C	tRNA Asn	-	+	Reported	20.80% 
+								
+5690	MT-TN	CPEO+ptosis+proximal myopathy	A5690G	tRNA Asn	-	+	Cfrm	Pathogenic 
+								
+5692	MT-TN	CPEO / MM	T5692C	tRNA Asn	-	+	Reported	46.60% 
+								
+5693	MT-TN	Encephalomyopathy	T5693C	tRNA Asn	+	-	Reported	31.20% 
+								
+5698	MT-TN	CPEO / MM	G5698A	tRNA Asn	-	+	Reported	47.70% 
+								
+5702	MT-TN	Sporadic CPEO	A5702del	tRNA Asn	-	+	Reported	89.00% 
+								
+5703	MT-TN	CPEO / MM	G5703A	tRNA Asn	-	+	Cfrm	Pathogenic 
+								
+5709	MT-TN	Ophthalmoparesis+respiratory impairment	T5709C	tRNA Asn	-	+	Reported	49.80% 
+								
+5715	MT-TN	Hearing loss patient	A5715G	tRNA Asn	nr	nr	Reported	12.50% 
+								
+5728	MT-TN	Multiorgan failure / myopathy	T5728C	tRNA Asn	-	+	Cfrm	Pathogenic 
+								
+5774	MT-TN	Reported in tic disorder patient	T5774C	tRNA Cys	nr	nr	Reported	0.70% 
+								
+5780	MT-TC	SNHL	G5780A	tRNA Cys	-	+	Reported	35.50% 
+								
+5783	MT-TC	Myopathy / deafness / gout / tic disorder	G5783A	tRNA Cys	-	+	Reported	66.90% 
+								
+5794	MT-TC	Hearing loss/ tic disorder	T5794C	tRNA Cys	nr	nr	Reported	16.00% 
+								
+5802	MT-TC	DEAF1555 increased penetrance / obesity risk	T5802C	tRNA Cys	+	-	Reported	58.90% 
+								
+5809	MT-TC	Hearing loss patient	G5809A	tRNA Cys	nr	nr	Reported	68.70% 
+								
+5814	MT-TC	Encephalopathy / gout	T5814C	tRNA Cys	-	+	Reported (L2b marker)	38.80% 
+								
+5816	MT-TC	Progressive Dystonia	A5816G	tRNA Cys	+	-	Reported	59.90% 
+								
+5819	MT-TC	Reported in tic disorder patient	T5819C	tRNA Cys	nr	nr	Reported	16.70% 
+								
+5820	MT-TC	MERRF	C5820A	tRNA Cys	+	-	Reported	68.10% 
+								
+5821	MT-TC	DEAF helper mut.	G5821A	tRNA Cys	+	-	Reported	20.90% 
+								
+5822	MT-TC	Hearing loss patient	G5822A	tRNA Cys	nr	nr	Reported	30.40% 
+								
+5835	MT-TY	Patient with proximal myopathy	G5835A	tRNA Tyr	nr	nr	Reported	54.70% 
+								
+5843	MT-TY	FSGS / Mitochondrial Cytopathy	A5843G	tRNA Tyr	+	-	Reported	8.40% 
+								
+5874	MT-TY	EXIT	T5874G	tRNA Tyr	-	+	Reported	38.90% 
+								
+5877	MT-TY	CPEO	C5877T	tRNA Tyr	-	+	Reported	24.80% 
+								
+5889	MT-TY	Multisystem mitochondrial disorder	A5889G	tRNA Tyr	-	+	Reported	66.10% 
+								
+7445	MT-TS1 precursor	DEAF	A7445C	tRNA Ser (UCN) precursor	+	-	Reported	-
+								
+7445	MT-TS1 precursor	SNHL	A7445G	tRNA Ser (UCN) precursor	+	+	Cfrm	-
+								
+7445	MT-TS1 precursor	SNHL	A7445T	tRNA Ser (UCN) precursor	+	-	Reported	-
+								
+7451	MT-TS1	CPEO+ptosis	A7451T	tRNA Ser (UCN) precursor	-	+	Reported	80.70% 
+								
+7453	MT-TS1	"Fatal neonatal lactic acidosis / Neonatal lactic acidosis, exercise intolerance, mild ID"	G7453A	tRNA Ser (UCN)	+	-	Reported	68.00% 
+								
+7456	MT-TS1	DEAF	A7456G	tRNA Ser (UCN)	+	-	Unclear	16.00% 
+								
+7458	MT-TS1	PEO	G7458A	tRNA Ser (UCN)	-	+	Reported	86.00% 
+								
+7462	MT-TS1	DEAF	C7462T	tRNA Ser (UCN)	+	-	Reported	11.20% 
+								
+7471	MT-TS1	Maternally inherited hypertension / deafness	C7471del	tRNA Ser (UCN)	nr	nr	Reported (=7466d)	4.30% 
+								
+7471	MT-TS1	PEM / AMDF / Motor neuron disease-like	C7471CC	tRNA Ser (UCN)	+	+	Cfrm	-
+								
+7472	MT-TS1	MM / DMDF modulator	A7472C	tRNA Ser (UCN)	+	+	Reported	3.20% 
+								
+7472	MT-TS1	PEM / AMDF / Motor neuron disease-like	A7472CA	tRNA Ser (UCN)	+	+	See 7471insC	-
+								
+7474	MT-TS1	Hearing loss and epilepsy	A7474del	tRNA Ser (UCN)	nr	nr	Reported (=7474d)	34.80% 
+								
+7474	MT-TS1	Hearing loss patient	A7474G	tRNA Ser (UCN)	nr	nr	Reported	0.00% 
+								
+7480	MT-TS1	MM	T7480G	tRNA Ser (UCN)	-	+	Reported	46.60% 
+								
+7486	MT-TS1	CPEO	G7486A	tRNA Ser (UCN)	-	+	Reported	50.50% 
+								
+7492	MT-TS1	Hypertension / hearing loss risk factor	C7492T	tRNA Ser (UCN)	+	-	Reported	0.10% 
+								
+7496	MT-TS1	Hearing Loss	T7496C	tRNA Ser (UCN)	nr	nr	Reported	58.30% 
+								
+7497	MT-TS1	MM / EXIT	G7497A	tRNA Ser (UCN)	+	+	Cfrm	Pathogenic 
+								
+7501	MT-TS1	Cardiovascular disease; renal disease patient	T7501A	tRNA Ser (UCN)	nr	nr	Reported	1.90% 
+								
+7502	MT-TS1	Reported in tic disorder patient	C7502T	tRNA Ser (UCN)	nr	nr	Reported	8.20% 
+								
+7505	MT-TS1	Maternally inherited hearing loss	T7505C	tRNA Ser (UCN)	+	-	Reported	58.60% 
+								
+7506	MT-TS1	PEO with hearing loss	G7506A	tRNA Ser (UCN)	-	+	Reported	81.40% 
+								
+7510	MT-TS1	SNHL	T7510C	tRNA Ser (UCN)	-	+	Cfrm	Pathogenic 
+								
+7511	MT-TS1	SNHL/Deafness	T7511C	tRNA Ser (UCN)	+	+	Cfrm	Pathogenic 
+								
+7512	MT-TS1	PEM / MERME / MELAS	T7512C	tRNA Ser (UCN)	+	+	Reported	64.20% 
+								
+7519	MT-TD	Deafness-associated	A7519del	tRNA Asp	nr	nr	Reported	36.90% 
+								
+7520	MT-TD	Sporadic bilateral optic neuropathy	G7520A	tRNA Asp	nr	nr	Reported	54.90% 
+								
+7526	MT-TD	Mitochondrial myopathy	A7526G	tRNA Asp	-	+	Reported	50.40% 
+								
+7539	MT-TD	Multisystemic mitochondrial disorder	C7539T	tRNA Asp	-	+	Reported	93.70% 
+								
+7543	MT-TD	MEPR	A7543G	tRNA Asp	-	+	Reported	67.30% 
+								
+7551	MT-TD	DEAF increased penetrance (1555G helper)	A7551G	tRNA Asp	+	-	Reported	28.90% 
+								
+7554	MT-TD	Myopathy+ataxia+nystagmus+migraines+lactic acidosis	G7554A	tRNA Asp	-	+	Reported	71.20% 
+								
+7566	MT-TD	Unspecified patient from clinical lab	G7566A	tRNA Asp	nr	nr	Reported	65.60% 
+								
+8296	MT-TK	DMDF / MERRF / HCM / epilepsy / hearing loss	A8296G	tRNA Lys	+	+	Reported	72.30% 
+								
+8299	MT-TK	PEO + respiratory impairment	G8299A	tRNA Lys	-	+	Reported	63.80% 
+								
+8302	MT-TK	Encephalopathy	A8302T	tRNA Lys	+	-	Unclear	15.20% 
+								
+8304	MT-TK	Epilepsy+ataxia+visual disturbance+deafness	G8304A	tRNA Lys	-	+	Reported	89.70% 
+								
+8305	MT-TK	Mitochondrial myopathy	C8305T	tRNA Lys	-	+	Reported	74.50% 
+								
+8306	MT-TK	Severe adult-onset multisymptom myopathy / Myoclonic epilepsy	T8306C	tRNA Lys	-	+	Cfrm	Pathogenic 
+								
+8311	MT-TK	Poss. hypertension factor	T8311C	tRNA Lys	+	-	Reported	6.80% 
+								
+8313	MT-TK	MNGIE / Progressive mito cytopathy	G8313A	tRNA Lys	-	+	Cfrm	Pathogenic 
+								
+8316	MT-TK	MELAS	T8316C	tRNA Lys	-	+	Reported	80.20% 
+								
+8319	MT-TK	Kearns-Sayre syndrome	A8319G	tRNA Lys	-	+	Reported	69.60% 
+								
+8326	MT-TK	Mitochondrial Cytopathy	A8326G	tRNA Lys	-	+	Reported	46.20% 
+								
+8328	MT-TK	Mito Encephalopathy / EXIT with myopathy and ptosis	G8328A	tRNA Lys	-	+	Reported	83.30% 
+								
+8332	MT-TK	Dystonia and stroke-like episodes	A8332G	tRNA Lys	+	-	Reported	62.80% 
+								
+8337	MT-TK	Poss. hypertension factor	T8337C	tRNA Lys	+	-	Reported	6.80% 
+								
+8339	MT-TK	Hearing loss patient	A8339G	tRNA Lys	nr	nr	Reported	47.60% 
+								
+8340	MT-TK	Myopathy / Exercise Intolerance / Eye disease+SNHL	G8340A	tRNA Lys	-	+	Cfrm	Pathogenic 
+								
+8342	MT-TK	PEO and Myoclonus	G8342A	tRNA Lys	-	+	Reported	77.20% 
+								
+8343	MT-TK	Metabolic syndrome and polycystic ovary syndrome / possible PD risk factor / deafness	A8343G	tRNA Lys	+	-	Reported	4.70% 
+								
+8344	MT-TK	MERRF; Other - LD / Depressive mood disorder / leukoencephalopathy / HiCM	A8344G	tRNA Lys	-	+	Cfrm	Pathogenic 
+								
+8346	MT-TK	Rett Syndrome	C8346del	tRNA Lys	nr	nr	Reported	3.00% 
+								
+8347	MT-TK	Poss. hypertension factor	A8347G	tRNA Lys	+	-	Reported	2.60% 
+								
+8348	MT-TK	Cardiomyopathy / SNHL / poss. hypertension factor	A8348G	tRNA Lys	+	+	Reported	33.80% 
+								
+8355	MT-TK	Myopathy	T8355C	tRNA Lys	-	+	Reported	67.20% 
+								
+8356	MT-TK	MERRF	T8356C	tRNA Lys	-	+	Cfrm	Pathogenic 
+								
+8357	MT-TK	Multiple symmetric lipomatosis	T8357C	tRNA Lys	-	+	Reported	59.10% 
+								
+8361	MT-TK	MERRF	G8361A	tRNA Lys	-	+	Reported	64.80% 
+								
+8362	MT-TK	Myopathy	T8362G	tRNA Lys	-	+	Reported	93.00% 
+								
+8363	MT-TK	MICM+DEAF / MERRF / Autism / Leigh Syndrome / Ataxia+Lipomas	G8363A	tRNA Lys	-	+	Cfrm	Pathogenic 
+								
+9997	MT-TG	Unspecified patient from clinical lab	T9997A	tRNA Gly	nr	nr	Reported	95.20% 
+								
+9997	MT-TG	MHCM	T9997C	tRNA Gly	-	+	Reported	80.30% 
+								
+10003	MT-TG	Hypertension / maternally inherited diabetes / hearing loss	T10003C	tRNA Gly	+	-	Reported	0.40% 
+								
+10005	MT-TG	Hearing loss patient	A10005G	tRNA Gly	nr	nr	Reported	9.00% 
+								
+10006	MT-TG	CIPO / Encephalopathy	A10006G	tRNA Gly	+	-	Unclear	19.30% 
+								
+10010	MT-TG	PEM	T10010C	tRNA Gly	-	+	Cfrm	Pathogenic 
+								
+10014	MT-TG	Myopathy	G10014A	tRNA Gly	+	-	Unclear	60.90% 
+								
+10019	MT-TG	Hearing loss patient	C10019T	tRNA Gly	nr	nr	Reported	50.50% 
+								
+10044	MT-TG	SIDS	A10044G	tRNA Gly	-	+	Unclear	34.70% 
+								
+10055	MT-TG	Tic disorder patient / hearing loss patient	A10055G	tRNA Gly	nr	nr	Reported	29.70% 
+								
+10057	MT-TG	Hearing loss patient	T10057C	tRNA Gly	nr	nr	Reported	38.40% 
+								
+10406	MT-TR	Mitochondrial myopathy	G10406A	tRNA Arg	-	+	Reported	72.30% 
+								
+10408	MT-TR	Unspecified patient from clinical lab	T10408C	tRNA Arg	nr	nr	Reported	64.30% 
+								
+10411	MT-TR	Dilated Cardiomyopathy	A10411T	tRNA Arg	+	-	Reported	26.40% 
+								
+10415	MT-TR	Dilated Cardiomyopathy	T10415C	tRNA Arg	+	-	Reported	76.50% 
+								
+10437	MT-TR	Mitochondrial myopathy	G10437A	tRNA Arg	-	+	Reported	51.70% 
+								
+10438	MT-TR	Progressive Encephalopathy	A10438G	tRNA Arg	-	+	Reported	46.20% 
+								
+10438	MT-TR	Non-dystrophic myopathy	A10438T	tRNA Arg	-	+	Reported	46.20% 
+								
+10450	MT-TR	Combined OXPHOS defects & severe multisystem disorder	A10450G	tRNA Arg	-	+	Reported	69.60% 
+								
+10454	MT-TR	DEAF helper mut.	T10454C	tRNA Arg	+	-	Reported	4.80% 
+								
+10460	MT-TR	Unspecified patient from clinical lab	T10460C	tRNA Arg	nr	nr	Reported	72.00% 
+								
+12141	MT-TR	Reported in tic disorder patient	A12141G	tRNA His	nr	nr	Reported	22.80% 
+								
+12146	MT-TH	MELAS	A12146G	tRNA His	+	+	Reported	61.60% 
+								
+12147	MT-TH	MERRF-MELAS / Encephalopathy	G12147A	tRNA His	-	+	Cfrm	Pathogenic 
+								
+12148	MT-TH	"Developmental delay, optic atrophy, cataract, hearing loss, myopathy"	T12148C	tRNA His	-	+	Reported	74.70% 
+								
+12167	MT-TH	Hearing loss patient	T12167C	tRNA His	nr	nr	Reported	24.60% 
+								
+12182	MT-TH	Sclerosis-like symptoms + white matter alterations	A12182G	tRNA His	+	-	Reported as VUS	46.40% 
+								
+12183	MT-TH	RP + DEAF	G12183A	tRNA His	-	+	Reported	70.30% 
+								
+12187	MT-TH	Asthenozoospermia	C12187A	tRNA His	+	-	Reported	15.40% 
+								
+12188	MT-TH	Hearing loss patient	T12188C	tRNA His	nr	nr	Reported	6.10% 
+								
+12192	MT-TH	MICM / possible G15927A deafness modulator	G12192A	tRNA His	+	-	Reported	4.50% 
+								
+12201	MT-TH	Maternally inherited non-syndromic deafness	T12201C	tRNA His	-	+	Cfrm	Pathogenic 
+								
+12206	MT-TH	MELAS-like encephalopathy+bilateral optic atrophy	C12206T	tRNA His	-	+	Reported	44.20% 
+								
+12207	MT-TS2	Myopathy / Encephalopathy	G12207A	tRNA Ser (AGY)	-	+	Reported	76.40% 
+								
+12224	MT-TS2	DEAF helper mutation	C12224T	tRNA Ser (AGY)	+	-	Reported	30.40% 
+								
+12235	MT-TS2	Hearing loss patient	T12235C	tRNA Ser (AGY)	nr	nr	Reported	27.50% 
+								
+12236	MT-TS2	DEAF	G12236A	tRNA Ser (AGY)	+	-	Reported	2.20% 
+								
+12246	MT-TS2	CIPO	C12246A	tRNA Ser (AGY)	nr	nr	Reported	3.20% 
+								
+12258	MT-TS2	DMDF / RP+SNHL	C12258A	tRNA Ser (AGY)	-	+	Cfrm	Pathogenic 
+								
+12258	MT-TS2	Unspecified patient from clinical lab	C12258T	tRNA Ser (AGY)	nr	nr	Reported	81.50% 
+								
+12261	MT-TS2	Myopathy+epilepsy+retinal degeneration+DEAF	T12261C	tRNA Ser (AGY)	-	+	Reported	65.30% 
+								
+12262	MT-TS2	Progressive MM+Deafness+Seizures	C12262A	tRNA Ser (AGY)	-	+	Reported	84.50% 
+								
+12264	MT-TS2	Multisystem Disease with Cataracts / Myopathy+epilepsy+DEAF+atypical autism	C12264T	tRNA Ser (AGY)	+	+	Reported	79.30% 
+								
+12276	MT-TL2	CPEO	G12276A	tRNA Leu (CUN)	-	+	Cfrm	Pathogenic 
+								
+12279	MT-TL2	Reported in tic disorder patient	A12279G	tRNA Leu (CUN)	nr	nr	Reported	5.90% 
+								
+12280	MT-TL2	Hypertension	A12280G	tRNA Leu (CUN)	+	-	Reported	6.50% 
+								
+12283	MT-TL2	CPEO	G12283A	tRNA Leu (CUN)	-	+	Reported	43.20% 
+								
+12293	MT-TL2	Axial mitochondrial myopathy / EXIT+myalgia+ptosis	G12293A	tRNA Leu (CUN)	-	+	Reported	66.90% 
+								
+12294	MT-TL2	CPEO / EXIT+Ophthalmoplegia	G12294A	tRNA Leu (CUN)	-	+	Cfrm	Pathogenic 
+								
+12297	MT-TL2	Dilated Cardiomyopathy / Leigh Syndrome / Failure to Thrive & LA	T12297C	tRNA Leu (CUN)	+	+	Reported	47.30% 
+								
+12299	MT-TL2	MELAS	A12299C	tRNA Leu (CUN)	-	+	Reported	53.00% 
+								
+12300	MT-TL2	3243 suppressor mutant	G12300A	tRNA Leu (CUN)	-	+	Reported	51.70% 
+								
+12308	MT-TL2	CPEO / Stroke / CM / Breast & Renal & Prostate Cancer Risk / Altered brain pH /sCJD	A12308G	tRNA Leu (CUN)	+	+	Reported	42.00% 
+								
+12311	MT-TL2	CPEO	T12311C	tRNA Leu (CUN)	+	+	Reported	34.40% 
+								
+12313	MT-TL2	FSHD	T12313C	tRNA Leu (CUN)	-	+	Reported	73.20% 
+								
+12315	MT-TL2	"CPEO / KSS / possible carotid atherosclerosis risk, trend toward myocardial infarction risk"	G12315A	tRNA Leu (CUN)	-	+	Cfrm	Pathogenic 
+								
+12316	MT-TL2	CPEO	G12316A	tRNA Leu (CUN)	-	+	Cfrm	Pathogenic 
+								
+12317	MT-TL2	CPEO+ptosis+myopathy+exercise intolerance+diabetes	T12317C	tRNA Leu (CUN)	-	+	Reported	41.30% 
+								
+12320	MT-TL2	MM	A12320G	tRNA Leu (CUN)	-	+	Reported	37.30% 
+								
+12325	MT-TL2	Hearing loss patient	C12325:	tRNA Leu (CUN)	nr	nr	Reported	91.50% 
+								
+12334	MT-TL2	CPEO	G12334A	tRNA Leu (CUN)	-	+	Reported	63.40% 
+								
+12335	MT-TL2	Unspecified patient from clinical lab	T12335C	tRNA Leu (CUN)	nr	nr	Reported	60.20% 
+								
+14674	MT-TE	Reversible COX deficiency myopathy	T14674C	tRNA Glu	+	-	Cfrm	Pathogenic 
+								
+14674	MT-TE	Reversible COX deficiency myopathy	T14674G	tRNA Glu	+	-	Reported	29.40% 
+								
+14680	MT-TE	Mitochondrial encephalomyopathy	C14680A	tRNA Glu	-	+	Reported	35.50% 
+								
+14685	MT-TE	Cataracts w spastic paraparesis & ataxia	G14685A	tRNA Glu	-	+	Reported	77.40% 
+								
+14687	MT-TE	Mito myopathy w respiratory failure; intellectual disability	A14687G	tRNA Glu	+	-	Reported	7.00% 
+								
+14692	MT-TE	LHON helper / Maternally inherited diabetes & deafness /tic disorder	A14692G	tRNA Glu	+	-	Reported	2.40% 
+								
+14693	MT-TE	MELAS / LHON / DEAF / hypertension helper	A14693G	tRNA Glu	+	+	Reported	39.50% 
+								
+14696	MT-TE	Progressive Encephalopathy	A14696G	tRNA Glu	-	+	Reported	22.00% 
+								
+14709	MT-TE	MM+DMDF / Encephalomyopathy / Dementia+diabetes+ophthalmoplegia	T14709C	tRNA Glu	+	+	Cfrm	Pathogenic 
+								
+14710	MT-TE	Encephalomyopathy + Retinopathy	G14710A	tRNA Glu	-	+	Cfrm	Pathogenic 
+								
+14721	MT-TE	Isolated complex I deficiency	G14721A	tRNA Glu	-	+	Reported	82.90% 
+								
+14723	MT-TE	CPEO + Myopathy	T14723C	tRNA Glu	-	+	Reported	73.50% 
+								
+14724	MT-TE	Mito Leukoencephalopathy	G14724A	tRNA Glu	-	+	Reported	88.80% 
+								
+14728	MT-TE	Late-onset mitochondrial encephalomyopathy	T14728C	tRNA Glu	-	+	Reported	48.50% 
+								
+14739	MT-TE	EXIT	G14739A	tRNA Glu	-	+	Reported	62.10% 
+								
+15894	MT-TT	Gout	G15894A	tRNA Thr	+	-	Reported	28.20% 
+								
+15897	MT-TT	Maternally inherited diabetes (MID)	G15897A	tRNA Thr	+	-	Reported	81.90% 
+								
+15901	MT-TT	Hearing loss patient	A15901G	tRNA Thr	nr	nr	Reported	15.90% 
+								
+15902	MT-TT	Hearing loss patient	A15902G	tRNA Thr	nr	nr	Reported	7.40% 
+								
+15908	MT-TT	DEAF helper mutation	T15908C	tRNA Thr	+	-	Reported	28.00% 
+								
+15909	MT-TT	Hypertension	A15909G	tRNA Thr	+	-	Reported	25.90% 
+								
+15910	MT-TT	Tic disorder patient / hearing loss patient / coronary heart disease	C15910T	tRNA Thr	+	-	Reported	25.20% 
+								
+15915	MT-TT	Encephalomyopathy	G15915A	tRNA Thr	-	+	Reported	73.70% 
+								
+15923	MT-TT	LIMM / MERRF / mito disease	A15923G	tRNA Thr	+	+	Reported	46.60% 
+								
+15924	MT-TT	LIMM	A15924G	tRNA Thr	nr	nr	Reported	22.70% 
+								
+15926	MT-TT	Hearing loss patient	C15926T	tRNA Thr	nr	nr	Reported	0.60% 
+								
+15927	MT-TT	LHON / Multiple Sclerosis / DEAF1555 increased penetrance / CHD	G15927A	tRNA Thr	+	-	Reported	16.20% 
+								
+15928	MT-TT	Multiple Sclerosis / idiopathic repeat miscarriage / AD protection	G15928A	tRNA Thr	+	+	Reported	20.20% 
+								
+15933	MT-TT	Suspected mito disease	G15933A	tRNA Thr	+	-	Reported	66.80% 
+								
+15942	MT-TT	Possibly LVNC-associated	T15942C	tRNA Thr	+	-	Reported	28.60% 
+								
+15944	MT-TT	MM	T15944:	tRNA Thr	+	-	Conflicting reports	19.90% 
+								
+15948	MT-TT	Reported in tic disorder patient	A15948G	tRNA Thr	nr	nr	Reported	29.90% 
+								
+15950	MT-TT	Dopaminergic nerve cell death (PD) / tic disorder	G15950A	tRNA Thr	+	-	Reported	54.50% 
+								
+15951	MT-TT	LHON / LHON modulator	A15951G	tRNA Thr	+	-	Conflicting reports	23.70% 
+								
+15952	MT-TT	Reported in tic disorder patient	C15952T	tRNA Thr	nr	nr	Reported	39.40% 
+								
+15958	MT-TP	Severe myopathy / EXIT	A15958T	tRNA Pro	-	+	Reported	93.80% 
+								
+15965	MT-TP	Dopaminergic nerve cell death (PD)	A15965G	tRNA Pro	+	-	Reported	2.10% 
+								
+15967	MT-TP	MERRF-like disease	G15967A	tRNA Pro	-	+	Reported	78.90% 
+								
+15975	MT-TP	Ataxia+RP+deafness	C15975T	tRNA Pro	-	+	Reported	78.30% 
+								
+15986	MT-TP	LHON modulator	G15986GG	tRNA Pro			Reported	-
+								
+15990	MT-TP	MM / PEO	C15990T	tRNA Pro	-	+	Cfrm	Pathogenic 
+								
+15992	MT-TP	Tic disorder patient / hearing loss patient	A15992G	tRNA Pro	nr	nr	Reported	17.60% 
+								
+15992	MT-TP	Exercise-induced muscle swelling and fatigue	A15992T	tRNA Pro	+	-	Reported	17.60% 
+								
+15995	MT-TP	Mitochondrial cytopathy	G15995A	tRNA Pro	-	+	Reported	80.00% 
+								
+15997	MT-TP	Hearing loss patient	T15997C	tRNA Pro	nr	nr	Reported	60.10% 
+								
+15998	MT-TP	Mitochondrial myopathy	A15998T	tRNA Pro	-	+	Reported	57.50% 
+								
+16002	MT-TP	Mitochondrial cytopathy	T16002C	tRNA Pro	-	+	Reported	75.80% 
+								
+16015	MT-TP	Mitochondrial myopathy	T16015C	tRNA Pro	-	+	Reported	50.40% 
+								
+16018	MT-TP	"Dilated cardiomyopathy (15 bp dup), alternate notation"	T16018TTCTCTGTTCTTTCAT	tRNA Pro	-	+	Reported	-
+								
+16021	MT-TP	Mitochondrial myopathy	16021_16022delCT	tRNA Pro	-	+	Reported	-
+								
+16023	MT-TP	Migraine +pigmentary retinopathy +deafness +leukariosis	G16023A	tRNA Pro	-	+	Reported	83.70% 
+								
+16032	MT-CR	"Dilated cardiomyopathy (15 bp dup), alternate notation"	T16032TTCTCTGTTCTTTCAT	tRNA Pro / CR	-	+	Reported	-
+								

@@ -16,14 +16,14 @@ impact <- fread("../data/cancer/data_mutations_impact.txt.gz") %>%
 
 tcga <- fread("../data/cancer/data_mutations_tcga.txt.gz") %>%
   filter(Variant_Type == "SNP" & class == "somatic" & helix_freq < 0.1 & genbank_freq < 0.1) %>%
-  mutate(mutation = Reference_Allele, Start_Position, Tumor_Seq_Allele2)
+  mutate(mutation = ShortVariantID)
 
 pcawg <- fread("../data/cancer/data_mutations_pcawg.txt.gz") %>%
   filter(Variant_Type == "SNP") %>%
   mutate(mutation = paste0(Reference_Allele, Start_Position, Tumor_Seq_Allele2))
 
 data.frame(
-  mutation = c(impact$mutation, tcga$mutation, pcawg$mutation)
+  mutation = c(impact$mutation, tcga$mutation, pcawg$mutation) 
 ) %>%
   group_by(mutation) %>% summarize(count_tumors = n()) -> cancer_count_df
 
@@ -92,10 +92,10 @@ cancer_merge_df$Complex <- cvec[as.character(cancer_merge_df$Symbol)]
 gwas$Complex <- cvec[as.character(gwas$Symbol)]
 
 # Now summarize and plot
-all_complex_test <- annotations %>% filter(syn_annotation == "WCF_to_WCF") %>%
+all_complex_test <- annotations %>% filter(syn_annotation == "Wobble_to_Wobble") %>%
   group_by(Complex) %>% summarize(count = n()) %>% mutate(perc = count / sum(count)*100)
 all_complex_test
-cancer_complex_test <- cancer_merge_df %>% filter(syn_annotation == "WCF_to_WCF") %>%
+cancer_complex_test <- cancer_merge_df %>% filter(syn_annotation == "Wobble_to_Wobble") %>%
   group_by(Complex) %>% summarize(count = n()) %>% mutate(perc = count / sum(count)*100)
 cancer_complex_test
 

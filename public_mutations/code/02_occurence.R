@@ -3,6 +3,8 @@ library(BuenColors)
 library(ggforce)
 library(data.table)
 
+source("01_functions.R")
+
 # Set up coordinates
 df <- data.frame(pos = 1:16569, angle = seq(0, (2*pi), by = (2*pi)/(16569-1)))
 
