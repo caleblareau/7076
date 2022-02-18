@@ -44,16 +44,25 @@ full_df$annotation <- case_when(
 )
 table(full_df$annotation)
 
+# Import activities
+a1 <- readRDS("../../../7076-large-data-files/seurat-projections/ATS_20201211_C1_refumap.rds")@assays$ACTIVITY
+a2 <- readRDS("../../../7076-large-data-files/seurat-projections/ATS_20210115_C1_refumap.rds")@assays$ACTIVITY
+a3 <- readRDS("../../../7076-large-data-files/seurat-projections/ATS_20210218_C1_refumap.rds")@assays$ACTIVITY
+a4 <- readRDS("../../../7076-large-data-files/seurat-projections/ATS_20210329_C1_refumap.rds")@assays$ACTIVITY
+a5 <- readRDS("../../../7076-large-data-files/seurat-projections/ATS_20210511_C1_refumap.rds")@assays$ACTIVITY
 
-so <- readRDS("../../../7076-large-data-files/seurat-projections/ATS_20201211_C1_refumap.rds")
+gs <- intersect(intersect(intersect(intersect(rownames(a1), rownames(a2)), rownames(a3)), rownames(a4)), rownames(a5))
+activities <- cbind(a1[gs,], a2[gs,], a3[gs,], a4[gs,], a5[gs,])
+so <- CreateSeuratObject(activities, assay = "ACTIVITY")
 
-df <- full_df %>% filter(orig.ident == "donor3_ATS_20201211_C1")
-rownames(df) <- df$cb
+# Now synthesize analyses
+df <- full_df 
+rownames(df) <- make.unique(df$cb)
 so <- AddMetaData(so, df)
 
 so$X7076G <- so$af7076 > 0.9
-so2 <- subset(so, subset = (af7076 > 0.9 |af7076 < 0.1) & predicted.celltype.l2 == "CD4 Naive")
-so.tem <- subset(so, subset = (predicted.celltype.l2 == "CD4 Naive"))
+so2 <- subset(so, subset = (af7076 > 0.9 |af7076 < 0.1) & predicted.celltype.l2 == "CD8 TEM")
+so.tem <- subset(so, subset = (predicted.celltype.l2 == "CD8 TEM"))
 
 library(Seurat)
 so2 <- ScaleData(so2, assay = "ACTIVITY")

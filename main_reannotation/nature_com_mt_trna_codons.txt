@@ -1,0 +1,65 @@
+Codon	AA.abr	AA.anticodon	AA.mod
+UUU	Phe	GAA	
+UUC	Phe	GAA	
+UUA	Leu	UAA	tm5
+UUG	Leu	UAA	tm5
+CUU	Leu	UAG	
+CUC	Leu	UAG	
+CUA	Leu	UAG	
+CUG	Leu	UAG	
+AUU	Lle	GAU	
+AUC	Lle	GAU	
+AUA	Met	CAU	f5
+AUG	Met	CAU	f5
+GUU	Val	UAC	
+GUC	Val	UAC	
+GUA	Val	UAC	
+GUG	Val	UAC	
+UCU	Ser	UGA	
+UCC	Ser	UGA	
+UCA	Ser	UGA	
+UCG	Ser	UGA	
+CCU	Pro	UGG	
+CCC	Pro	UGG	
+CCA	Pro	UGG	
+CCG	Pro	UGG	
+ACU	Thr	UGU	
+ACC	Thr	UGU	
+ACA	Thr	UGU	
+ACG	Thr	UGU	
+GCU	Ala	UGC	
+GCC	Ala	UGC	
+GCA	Ala	UGC	
+GCG	Ala	UGC	
+UAU	Tyr	GUA	Q1
+UAC	Tyr	GUA	Q1
+UAA	Stop		
+UAG	Stop		
+CAU	His	GUG	Q1
+CAC	His	GUG	Q1
+CAA	Gln	UUG	tm5s2
+CAG	Gln	UUG	tm5s2
+AAU	Asn	GUU	Q1
+AAC	Asn	GUU	Q1
+AAA	Lys	UUU	tm5s2
+AAG	Lys	UUU	tm5s2
+GAU	Asp	GUC	Q1
+GAC	Asp	GUC	Q1
+GAA	Glu	UUC	tm5s2
+GAG	Glu	UUC	tm5s2
+UGU	Cys	GCA	
+UGC	Cys	GCA	
+UGA	Trp	UCA	tm5
+UGG	Trp	UCA	tm5
+CGU	Arg	UCG	
+CGC	Arg	UCG	
+CGA	Arg	UCG	
+CGG	Arg	UCG	
+AGU	Ser	GCU	
+AGC	Ser	GCU	
+AGA	Stop		
+AGG	Stop		
+GGU	Gly	UCC	
+GGC	Gly	UCC	
+GGA	Gly	UCC	
+GGG	Gly	UCC	

@@ -28,5 +28,6 @@ count_me <- function(df){
     filter(Consequence == "synonymous_variant") %>%
     group_by(syn_annotation) %>%
     summarize(count = n()) %>%
+    tidyr::complete(syn_annotation, fill = list(count = 0)) %>%
     mutate(perc = count/sum(count)*100)
 }
