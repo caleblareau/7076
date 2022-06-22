@@ -28,7 +28,7 @@ write_barcode_tsv <- function(i){
   
   new_out <- sprintf("../data/mito_data/mito_barcodes/ATS_PBMC_%s_allele_barcodes.tsv",names(files[i]))
   
-  write.table(one, file = new_out, sep = "\t", col.names = FALSE,row.names = FALSE)
+  write.table(one, file = new_out, sep = "\t", quote = FALSE,col.names = FALSE,row.names = FALSE)
   
   
 }
