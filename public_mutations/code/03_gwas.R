@@ -42,7 +42,9 @@ count_me(annotations)
 count_me(annotations %>% filter(Disease != "-"))
 
 mdf %>% filter(FDR < 0.05) %>% filter(syn_annotation!= "other") %>%
-  arrange(desc(syn_annotation)) 
+  arrange(desc(syn_annotation)) %>% filter(abs(Effect.size)>1) %>% 
+  arrange(desc(Effect.size))
+  pull(Effect.size) %>% summary()
 
 annotations %>% filter(Disease != "-") %>% filter(syn_annotation != "other") %>%
   arrange(syn_annotation)

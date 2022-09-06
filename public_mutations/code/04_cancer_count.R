@@ -8,6 +8,11 @@ source("01_functions.R")
 annotations <- fread("../data/functional_variant_tRNA_anticodon_table.tsv") %>% data.frame()
 annotations$mutation <- paste0( annotations$Reference, annotations$Position, annotations$Variant)
 annotations$syn_annotation <- annotate_synonomous(annotations)
+anno_aa_df <- annotations %>% filter(syn_annotation == "WCF_to_Wobble") %>% 
+  group_by(Amino.acids) %>% summarize(count = n()) %>% mutate(pct = count / sum(count)*100) 
+
+# Filter to super wobble
+annotations <- annotations %>% filter(!(Amino.acids %in% c("G", "R", "A", "T", "P", "S", "V","L")))
 
 # Import Phewas associations
 impact <- fread("../data/cancer/data_mutations_impact.txt.gz") %>%
@@ -30,6 +35,18 @@ data.frame(
 # Merge the two and look at FDR < 0.05 hits (how significance has been previously defined)
 cancer_merge_df <- merge(cancer_count_df, annotations, by.x = "mutation",  by.y = "mutation") %>% arrange(desc(count_tumors))
 table(cancer_merge_df$syn_annotation)
+cancer_aa_df <- cancer_merge_df %>% filter(syn_annotation == "WCF_to_Wobble") %>% 
+  group_by(Amino.acids) %>% summarize(count = n()) %>% mutate(pct = count / sum(count)*100) 
+
+data.frame(
+  anno_aa_df,
+  cancer_aa_df
+) %>%
+  mutate(color = Amino.acids %in% c("G", "R", "A", "T", "P", "S", "V","L")) %>%
+  ggplot(aes( x = pct, y = pct.1, label = Amino.acids, color = color))+
+  geom_text()+
+  labs(x = "%Total possible WCF-> Wobble", y = "%Observed in cancer tumors WCF -> Wobble") +
+  geom_abline(intercept = 0, slope = 1, linetype = 2) + pretty_plot() + L_border()
 
 
 # Import the GWAS data to do some combined analyses

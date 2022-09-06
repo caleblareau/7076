@@ -61,7 +61,7 @@ full_df %>%
   group_by(predicted.celltype.l2) %>%
   summarize(n = n(), hi7076 = sum(hi7076), low7076 = sum(low7076)) %>%
   filter(n > 50) %>%
-  mutate(ratio = low7076/hi7076) %>%
+  mutate(ratio = hi7076/low7076) %>%
   arrange(desc(ratio)) %>%
   ungroup() %>%
   mutate(rank = 1:n()) -> out_df
@@ -83,7 +83,7 @@ p2 <- ggplot(out_df, aes(x = rank, y = ratio, fill = fill_color)) +
   scale_y_continuous(expand = c(0,0)) +
   theme(legend.position = "none")
 
-cowplot::ggsave2(p2, file = "../output/rank_order_plot.pdf", width = 1.6, height = 1)
+cowplot::ggsave2(p2, file = "../output/rank_order_plot-recip.pdf", width = 1.6, height = 1)
 
 # Try making a UMAP viz first
 library(viridis)
