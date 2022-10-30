@@ -1,6 +1,7 @@
 library(data.table)
 library(dplyr)
 library(BuenColors)
+library(viridis)
 "%ni%" <- Negate("%in%")
 
 theme_blank <- function(...) {
@@ -60,11 +61,12 @@ full_df %>%
   mutate(hi7076 = af7076 > 0.9, low7076 = af7076 < 0.1) %>%
   group_by(predicted.celltype.l2) %>%
   summarize(n = n(), hi7076 = sum(hi7076), low7076 = sum(low7076)) %>%
-  filter(n > 50) %>%
+  filter(n > 50) %>%x
   mutate(ratio = hi7076/low7076) %>%
   arrange(desc(ratio)) %>%
   ungroup() %>%
   mutate(rank = 1:n()) -> out_df
+
 out_df$fill_color <- case_when(
   out_df$predicted.celltype.l2 %in% c("CD14 Mono", "CD16 Mono") ~ "Mono",
   out_df$predicted.celltype.l2 %in% c("B memory", "B naive", "B intermediate")~ "Bcell",
@@ -100,6 +102,15 @@ plot_het_umap <- ggplot(shuf(full_df), aes(x = refUMAP_1, y = refUMAP_2, color =
 
 cowplot::ggsave2(plot_het_umap, width = 5, height = 5, filename = "../output/heteroplasmy_umap.png")
 
+full_df$af_weight <- Nebulosa:::calculate_density(1-(full_df$af7076 ), cbind(full_df$refUMAP_1, full_df$refUMAP_2),
+                                                  method = "wkde", adjust = 5)
+plot_het_umap_smooth <- ggplot(full_df %>% arrange(af_weight),
+                               aes(x = refUMAP_1, y = refUMAP_2, color = af_weight)) +
+  geom_point(size = 0.1) +
+  scale_color_gradientn(colors = jdb_palette("flame_flame")) + theme_blank() +
+  theme(legend.position = "none")
+
+cowplot::ggsave2(plot_het_umap_smooth, width = 5, height = 5, filename = "../output/heteroplasmy_smooth_umap.png")
 
 full_df$high <- full_df$af7076 > 0.95
 full_df$low <- full_df$af7076 < 0.05

@@ -3,7 +3,7 @@ library(dplyr)
 library(readxl)
 library(BuenColors)
 library(VariantAnnotation)
-
+source("01_functions.R")
 vcf <- readVcf( "../../reference_genome/data/gnomad.genomes.v3.1.sites.chrM.vcf.bgz", verbose = FALSE )
 
 # Import Jacob's work
@@ -32,8 +32,25 @@ process_stats_syn_type <- function(df){
   
 }
 
-process_stats_syn_type(gnomad_homo)
+process_stats_syn_type2 <- function(df){
+  cm_t <- count_me(df)
+  cm_t
+  
+}
+
 process_stats_syn_type(gnomad_het)
+process_stats_syn_type(gnomad_homo)
+process_stats_syn_type(annotations)
+
+process_stats_syn_type2(gnomad_homo %>% filter(Amino.acids %in% c("Y", "H", "N", "D")))
+process_stats_syn_type2(annotations %>% filter(Amino.acids %in% c("Y", "H", "N", "D")))
+
+process_stats_syn_type2(gnomad_homo %>% filter(Amino.acids %in% c("G", "R", "A", "T", "P","V")))
+process_stats_syn_type2(annotations %>% filter(Amino.acids %in% c("G", "R", "A", "T", "P","V")))
+
+process_stats_syn_type2(gnomad_homo %>% filter(Amino.acids %in% c("Y", "H", "N", "D")))
+process_stats_syn_type2(gnomad_homo %>% filter(Amino.acids %in% c("Y", "H", "N", "D")))
+
 
 
 library(readxl)
