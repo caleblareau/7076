@@ -61,7 +61,7 @@ full_df %>%
   mutate(hi7076 = af7076 > 0.9, low7076 = af7076 < 0.1) %>%
   group_by(predicted.celltype.l2) %>%
   summarize(n = n(), hi7076 = sum(hi7076), low7076 = sum(low7076)) %>%
-  filter(n > 50) %>%x
+  filter(n > 50) %>%
   mutate(ratio = hi7076/low7076) %>%
   arrange(desc(ratio)) %>%
   ungroup() %>%
@@ -81,6 +81,16 @@ out_df$fill_color <- case_when(
 p2 <- ggplot(out_df, aes(x = rank, y = ratio, fill = fill_color)) +
   geom_bar(stat = "identity", color = "black") +
   scale_fill_manual(values = jdb_palette("corona")[c(5,2:4,1,6,7,8)]) +
+  pretty_plot(fontsize = 7) + L_border() +
+  scale_y_continuous(expand = c(0,0)) +
+  theme(legend.position = "none")
+
+overall_mean <- sum(out_df$hi7076)/(sum(out_df$hi7076) + sum(out_df$low7076))
+out_df$p_value <- pbinom(out_df$hi7076, out_df$hi7076 + out_df$low7076,  prob = overall_mean, lower.tail = TRUE)
+
+ggplot(out_df, aes(x = ratio, y = -log10(p_value), color = fill_color)) +
+  geom_point() +
+  scale_color_manual(values = jdb_palette("corona")[c(5,2:4,1,6,7,8)]) +
   pretty_plot(fontsize = 7) + L_border() +
   scale_y_continuous(expand = c(0,0)) +
   theme(legend.position = "none")

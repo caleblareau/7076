@@ -100,7 +100,7 @@ clusters_umap <- DimPlot(object = so, label = FALSE, reduction = "peaks.umap", g
   scale_color_manual(values = jdb_palette("brewer_spectra")[c(1,2,7,9,8)]) +
   theme_void() + theme(legend.position = "none") +
   ggtitle("")
-cowplot::ggsave2(clusters_umap, file = paste0("../output/cultureplots/clusters_umap_viz.png"), width = 4, height = 4, dpi = 500)
+#cowplot::ggsave2(clusters_umap, file = paste0("../output/cultureplots/clusters_umap_viz.png"), width = 4, height = 4, dpi = 500)
 
 
 # See enrichment of A/G allele in clusters
@@ -122,6 +122,19 @@ rest_prop <- sum(outdf$proportion[2:5]*outdf$count[2:5])/rest_n
 binom.test(p = rest_prop, x = outdf$n_hi[1], n = outdf$count[1])
 
 outdf$caleb_cluster_order <- factor(outdf$caleb_cluster, levels = outdf$caleb_cluster)
+
+overall_mean <- sum(outdf$n_hi)/(sum(outdf$n_hi) + sum(outdf$n_low))
+outdf$p_value <- pbinom(outdf$n_hi, outdf$n_hi + outdf$n_low,  prob = overall_mean, lower.tail = TRUE)
+
+ggplot(outdf, aes(x = ratio, y = -log10(p_value), color = caleb_cluster)) +
+  geom_point() +
+  scale_color_manual(values = jdb_palette("brewer_spectra")[c(1,2,7,9,8)]) +
+  pretty_plot(fontsize = 7) + L_border() +
+  scale_y_continuous(expand = c(0,0)) +
+  theme(legend.position = "none")
+
+
+
 p2 <- ggplot(outdf, aes(x = caleb_cluster_order, y = ratio, color = caleb_cluster)) +
   geom_point(size = 3) +
   scale_color_manual(values = jdb_palette("brewer_spectra")[c(1,2,7,9,8)]) +
@@ -132,7 +145,7 @@ p2 <- ggplot(outdf, aes(x = caleb_cluster_order, y = ratio, color = caleb_cluste
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) + labs(x = "T cell cluster", y = "")
 
 p2
-cowplot::ggsave2(p2, file = "../output/cultureplots/rank_order_plot_ratio.pdf", width = 1.4, height = 1.6)
+#cowplot::ggsave2(p2, file = "../output/cultureplots/rank_order_plot_ratio.pdf", width = 1.4, height = 1.6)
 
 
 DefaultAssay(so) <- "ADT"
@@ -154,7 +167,7 @@ plot_het_umap_smooth <- ggplot(cbind(so@meta.data,
   scale_color_gradientn(colors = jdb_palette("flame_flame")) + 
   theme_void() +
   theme(legend.position = "none")
-cowplot::ggsave2(plot_het_umap_smooth, file = paste0("../output/cultureplots/smoothed_umap_viz.png"), width = 4, height = 4, dpi = 500)
+#cowplot::ggsave2(plot_het_umap_smooth, file = paste0("../output/cultureplots/smoothed_umap_viz.png"), width = 4, height = 4, dpi = 500)
 
 # Plot markers nebulosa
 plot_klrg1_smooth <- ggplot(cbind(so@meta.data,
@@ -164,7 +177,7 @@ plot_klrg1_smooth <- ggplot(cbind(so@meta.data,
   scale_color_viridis() +
   theme_void() +
   theme(legend.position = "none")
-cowplot::ggsave2(plot_klrg1_smooth, file = paste0("../output/cultureplots/smoothedKLRG1_umap_viz.png"), width = 4, height = 4, dpi = 500)
+#cowplot::ggsave2(plot_klrg1_smooth, file = paste0("../output/cultureplots/smoothedKLRG1_umap_viz.png"), width = 4, height = 4, dpi = 500)
 
 plot_il7r_smooth <- ggplot(cbind(so@meta.data,
                                      so@reductions$peaks.umap@cell.embeddings[,c(1,2)])%>% arrange(il7r_weight),
@@ -173,11 +186,18 @@ plot_il7r_smooth <- ggplot(cbind(so@meta.data,
   scale_color_viridis() +
   theme_void() +
   theme(legend.position = "none")
-cowplot::ggsave2(plot_il7r_smooth, file = paste0("../output/cultureplots/smoothedIL7R_umap_viz.png"), width = 4, height = 4, dpi = 500)
+#cowplot::ggsave2(plot_il7r_smooth, file = paste0("../output/cultureplots/smoothedIL7R_umap_viz.png"), width = 4, height = 4, dpi = 500)
 
 
 # CD4/CD8 ratio
 so$CD4CD8ratio <- log2((so@assays$ADT@counts["CD8A",]+1)/(so@assays$ADT@counts["CD4",]+1))
+
+FeaturePlot(so, features = c("CD45RA", "TIGIT"),
+            max.cutoff = "q99", min.cutoff = 'q05',
+            reduction = "peaks.umap") &
+  scale_color_viridis()
+
+
 so$smooth_cd4cd8 <- Nebulosa:::calculate_density(so$CD4CD8ratio, (so@reductions$peaks.umap@cell.embeddings[,c(1,2)]),
                                                method = "wkde", adjust = 0.5)
 umapCD4CD8 <- ggplot(cbind(so@meta.data,
@@ -187,7 +207,7 @@ umapCD4CD8 <- ggplot(cbind(so@meta.data,
   scale_color_gradientn(colors = jdb_palette("solar_extra")) + 
   theme_void() +
   theme(legend.position = "none")
-cowplot::ggsave2(umapCD4CD8, file = paste0("../output/cultureplots/cd4cd8_umap_viz.png"), width = 4, height = 4, dpi = 500)
+#cowplot::ggsave2(umapCD4CD8, file = paste0("../output/cultureplots/cd4cd8_umap_viz.png"), width = 4, height = 4, dpi = 500)
 
 
 # regulat hetero
