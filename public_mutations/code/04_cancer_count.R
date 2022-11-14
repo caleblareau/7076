@@ -11,8 +11,6 @@ annotations$syn_annotation <- annotate_synonomous(annotations)
 anno_aa_df <- annotations %>% filter(syn_annotation == "WCF_to_Wobble") %>% 
   group_by(Amino.acids) %>% summarize(count = n()) %>% mutate(pct = count / sum(count)*100) 
 
-# Filter to super wobble
-annotations <- annotations %>% filter(!(Amino.acids %in% c("G", "R", "A", "T", "P", "S", "V","L")))
 
 # Import Phewas associations
 impact <- fread("../data/cancer/data_mutations_impact.txt.gz") %>%
@@ -35,6 +33,17 @@ data.frame(
 # Merge the two and look at FDR < 0.05 hits (how significance has been previously defined)
 cancer_merge_df <- merge(cancer_count_df, annotations, by.x = "mutation",  by.y = "mutation") %>% arrange(desc(count_tumors))
 table(cancer_merge_df$syn_annotation)
+
+
+process_stats_syn_type2 <- function(df){
+  cm_t <- count_me(df)
+  cm_t
+  
+}
+process_stats_syn_type2(cancer_merge_df %>% filter(Amino.acids %in% c("G",)))
+process_stats_syn_type2(annotations %>% filter(Amino.acids %in% c("G", "R", "A", "T", "P","V")))
+
+
 cancer_aa_df <- cancer_merge_df %>% filter(syn_annotation == "WCF_to_Wobble") %>% 
   group_by(Amino.acids) %>% summarize(count = n()) %>% mutate(pct = count / sum(count)*100) 
 
@@ -91,7 +100,7 @@ impact_df_count <- process_stats_syn_type(make_cancer_df(c(impact$mutation))); i
 tcga_df_count <- process_stats_syn_type(make_cancer_df(c(tcga$mutation))); tcga_df_count$cohort <- "tcga"
 pcawg_df_count <- process_stats_syn_type(make_cancer_df(c(pcawg$mutation))); pcawg_df_count$cohort <- "pcawg"
 all_df_count <- rbind(impact_df_count, tcga_df_count, pcawg_df_count)
-
+all_df_count
 
 library(ggbeeswarm)
 p1bar <- ggplot(all_df_count, aes(x = syn_annotation, y = perc, fill = syn_annotation, shape = cohort)) +

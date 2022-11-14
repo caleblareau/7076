@@ -62,18 +62,9 @@ so <- AddMetaData(so, df)
 
 so$X7076G <- so$af7076 > 0.9
 so2 <- subset(so, subset = (af7076 > 0.9 |af7076 < 0.1) & predicted.celltype.l2 == "CD8 TEM")
-so.tem <- subset(so, subset = (predicted.celltype.l2 == "CD8 TEM"))
 
 library(Seurat)
 so2 <- ScaleData(so2, assay = "ACTIVITY")
 diff_gene_scores <- FindMarkers(so2, assay = "ACTIVITY", group.by = "X7076G",
                                 ident.1 = "TRUE", ident.2 = "FALSE", logfc.threshold  = 0.1)
 diff_gene_scores
-
-cordf <- data.frame(
-  cor = cor(t(data.matrix(so.tem@assays$ACTIVITY@data)), so.tem$af7076)
-) %>% arrange(desc(cor))
-
-head(cordf)
-
-cordf[!is.na(cordf$cor),, drop = FALSE] %>% tail(20)

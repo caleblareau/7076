@@ -16,6 +16,7 @@ mtdna_df <- mtDNA_counts %>% filter(Barcode %in% azimuth_qc$cell) %>%
 mdf <- data.frame(merge(mtdna_df, azimuth_qc, by.x = "Barcode", by.y = "cell"))
 mdf2 <- merge(mdf, tcrs, by.x = "Barcode", by.y = "barcode")
 
+
 df <- mdf2 %>%
   filter(coverage > 5) %>%
   filter(predicted.celltype.l1 %in% c("CD4 T", "CD8 T")) %>%
@@ -31,6 +32,20 @@ clone_number_df <- reshape2::dcast(df[,c("allele", "count", "raw_clonotype_id", 
                                    raw_clonotype_id ~ allele + ct, value.var = "count", fill = 0) %>% 
   arrange((A7076_CD8)) %>% data.frame()
 
+# How mutually exclusive are we
+clone_number_df_sum <- clone_number_df
+clone_number_df_sum$total_Acells <- clone_number_df_sum$A7076_CD4 + clone_number_df_sum$A7076_CD8
+clone_number_df_sum$total_Gcells <- clone_number_df_sum$G7076_CD4 + clone_number_df_sum$G7076_CD8
+
+pclone <- ggplot(clone_number_df_sum %>% filter(raw_clonotype_id != "clonotype3"), aes(x = total_Acells, y = total_Gcells)) +
+  geom_point() + pretty_plot(fontsize = 8) + L_border() +
+  labs(x = "# cells with m.7076A", y = "# cells with m.7076G")
+cowplot::ggsave2(pclone, file = "../plots/TCR_exansion.pdf", width = 1.8, height = 1.8)
+
+clone_number_df_sum %>% filter(total_Gcells > 5 & total_Acells > 5)
+tcrs %>% filter(raw_clonotype_id == "clonotype2")  %>%filter(chain == "TRB") %>% pull(cdr2) %>% table()
+clone_number_df_sum %>% filter(raw_clonotype_id != "clonotype3") %>% filter((total_Acells + total_Gcells) >= 2) %>% 
+  mutate(all_GA = (total_Gcells == 0 | total_Acells == 0)) %>% pull(all_GA) %>% table()
 
 # Look at all clones
 clone_df <- reshape2::melt(clone_number_df, id.vars = c("raw_clonotype_id")) %>%

@@ -1,6 +1,7 @@
 library(data.table)
 library(dplyr)
 library(BuenColors)
+library(viridis)
 "%ni%" <- Negate("%in%")
 
 theme_blank <- function(...) {
@@ -65,6 +66,7 @@ full_df %>%
   arrange(desc(ratio)) %>%
   ungroup() %>%
   mutate(rank = 1:n()) -> out_df
+
 out_df$fill_color <- case_when(
   out_df$predicted.celltype.l2 %in% c("CD14 Mono", "CD16 Mono") ~ "Mono",
   out_df$predicted.celltype.l2 %in% c("B memory", "B naive", "B intermediate")~ "Bcell",
@@ -79,6 +81,16 @@ out_df$fill_color <- case_when(
 p2 <- ggplot(out_df, aes(x = rank, y = ratio, fill = fill_color)) +
   geom_bar(stat = "identity", color = "black") +
   scale_fill_manual(values = jdb_palette("corona")[c(5,2:4,1,6,7,8)]) +
+  pretty_plot(fontsize = 7) + L_border() +
+  scale_y_continuous(expand = c(0,0)) +
+  theme(legend.position = "none")
+
+overall_mean <- sum(out_df$hi7076)/(sum(out_df$hi7076) + sum(out_df$low7076))
+out_df$p_value <- pbinom(out_df$hi7076, out_df$hi7076 + out_df$low7076,  prob = overall_mean, lower.tail = TRUE)
+
+ggplot(out_df, aes(x = ratio, y = -log10(p_value), color = fill_color)) +
+  geom_point() +
+  scale_color_manual(values = jdb_palette("corona")[c(5,2:4,1,6,7,8)]) +
   pretty_plot(fontsize = 7) + L_border() +
   scale_y_continuous(expand = c(0,0)) +
   theme(legend.position = "none")
@@ -100,6 +112,15 @@ plot_het_umap <- ggplot(shuf(full_df), aes(x = refUMAP_1, y = refUMAP_2, color =
 
 cowplot::ggsave2(plot_het_umap, width = 5, height = 5, filename = "../output/heteroplasmy_umap.png")
 
+full_df$af_weight <- Nebulosa:::calculate_density(1-(full_df$af7076 ), cbind(full_df$refUMAP_1, full_df$refUMAP_2),
+                                                  method = "wkde", adjust = 5)
+plot_het_umap_smooth <- ggplot(full_df %>% arrange(af_weight),
+                               aes(x = refUMAP_1, y = refUMAP_2, color = af_weight)) +
+  geom_point(size = 0.1) +
+  scale_color_gradientn(colors = jdb_palette("flame_flame")) + theme_blank() +
+  theme(legend.position = "none")
+
+cowplot::ggsave2(plot_het_umap_smooth, width = 5, height = 5, filename = "../output/heteroplasmy_smooth_umap.png")
 
 full_df$high <- full_df$af7076 > 0.95
 full_df$low <- full_df$af7076 < 0.05
