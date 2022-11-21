@@ -40,8 +40,46 @@ process_stats_syn_type2 <- function(df){
   cm_t
   
 }
-process_stats_syn_type2(cancer_merge_df %>% filter(Amino.acids %in% c("G",)))
-process_stats_syn_type2(annotations %>% filter(Amino.acids %in% c("G", "R", "A", "T", "P","V")))
+
+# Define functions to slice and dice variant class
+filter_for_Gbois <- function(df){
+  df %>% filter(Amino.acids %in% c("I", "F","C", "S")) %>%
+    filter(!(Amino.acids == "S") | grepl("GCU", Reference.tRNA)) %>% #refine serine; either matches another AA or has the right anticodon
+  count_me
+}
+
+filter_for_tau <- function(df){
+  df %>% filter(Amino.acids %in% c("L", "W", "E", "K", "Q")) %>%
+    filter(!(Amino.acids == "L") | grepl("UAA", Reference.tRNA)) %>% #refine leucine; either matches another AA or has the right anticodon
+    count_me
+}
+
+filter_for_super_wobble <- function(df){
+  df %>% filter(Amino.acids %in% c("G", "R", "A", "T", "P","V", "S", "L")) %>%
+    filter(!(Amino.acids == "S") | grepl("UGA", Reference.tRNA)) %>% #refine serine; either matches another AA or has the right anticodon
+    filter(!(Amino.acids == "L") | grepl("UAG", Reference.tRNA)) %>% #refine lysine; either matches another AA or has the right anticodon
+    
+    count_me
+}
+
+
+filter_for_Q34 <- function(df){
+  df %>% filter(Amino.acids %in% c("Y", "H", "N", "D")) %>%
+    count_me
+}
+
+filter_for_super_wobble(cancer_merge_df)
+filter_for_super_wobble(annotations)
+
+filter_for_Gbois(cancer_merge_df)
+filter_for_Gbois(annotations)
+
+filter_for_Q34(cancer_merge_df)
+filter_for_Q34(annotations)
+
+filter_for_tau(cancer_merge_df)
+filter_for_tau(annotations)
+
 
 
 cancer_aa_df <- cancer_merge_df %>% filter(syn_annotation == "WCF_to_Wobble") %>% 

@@ -74,7 +74,7 @@ p1 <- ggplot(gwas_plot, aes(x = syn_annotation_int, y = Position.x, color = syn_
   xlim(-5,5) + ylim(1, 16569) +
   scale_color_manual(values = jdb_palette("corona"))
 
-cowplot::ggsave2(p1, file = "../output/gwas_mutations.pdf", width = 3, height = 3)
+#cowplot::ggsave2(p1, file = "../output/gwas_mutations.pdf", width = 3, height = 3)
 
 
 

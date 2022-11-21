@@ -42,16 +42,6 @@ process_stats_syn_type(gnomad_het)
 process_stats_syn_type(gnomad_homo)
 process_stats_syn_type(annotations)
 
-process_stats_syn_type2(gnomad_homo %>% filter(Amino.acids %in% c("Y", "H", "N", "D")))
-process_stats_syn_type2(annotations %>% filter(Amino.acids %in% c("Y", "H", "N", "D")))
-
-process_stats_syn_type2(gnomad_homo %>% filter(Amino.acids %in% c("G", "R", "A", "T", "P","V")))
-process_stats_syn_type2(annotations %>% filter(Amino.acids %in% c("G", "R", "A", "T", "P","V")))
-
-process_stats_syn_type2(gnomad_homo %>% filter(Amino.acids %in% c("Y", "H", "N", "D")))
-process_stats_syn_type2(gnomad_homo %>% filter(Amino.acids %in% c("Y", "H", "N", "D")))
-
-
 
 library(readxl)
 library(BuenColors)
