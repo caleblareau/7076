@@ -19,6 +19,8 @@ annotations %>% filter(syn_annotation == "Wobble_to_Wobble") %>% pull(Amino.acid
 annotations %>% filter(syn_annotation == "WCF_to_Wobble") %>% pull(Amino.acids) %>% table()
 annotations %>% filter(syn_annotation == "Wobble_to_WCF") %>% pull(Amino.acids) %>% table()
 
+annotations %>% filter(Codons %in% c("ggG/ggA"))
+
 # Sanity check
 annotations %>% filter(Position == 7076) 
 

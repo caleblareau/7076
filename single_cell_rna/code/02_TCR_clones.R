@@ -42,6 +42,24 @@ pclone <- ggplot(clone_number_df_sum %>% filter(raw_clonotype_id != "clonotype3"
   labs(x = "# cells with m.7076A", y = "# cells with m.7076G")
 cowplot::ggsave2(pclone, file = "../plots/TCR_exansion.pdf", width = 1.8, height = 1.8)
 
+
+# Clone total df
+clone_total_df <- clone_number_df_sum[,c("raw_clonotype_id", "total_Acells","total_Gcells")] %>%
+  reshape2::melt(id.vars = "raw_clonotype_id") %>%
+  filter(raw_clonotype_id != "clonotype3" & value != 0) %>%
+  group_by(variable) %>%
+  arrange(desc(value)) %>% mutate(rank = 1:n())
+
+clone_total_df%>%
+  filter(value > 2) %>%
+  ggplot(aes(x = rank, y = value, color = variable)) +
+  geom_point() + scale_y_log10() 
+
+clone_total_df2 <- clone_total_df %>% filter(value > 2)
+wilcox.test(clone_total_df2$value[clone_total_df2$variable=="total_Acells"],
+            clone_total_df2$value[clone_total_df2$variable=="total_Gcells"])
+
+# Look at mutual exclusion
 clone_number_df_sum %>% filter(total_Gcells > 5 & total_Acells > 5)
 tcrs %>% filter(raw_clonotype_id == "clonotype2")  %>%filter(chain == "TRB") %>% pull(cdr2) %>% table()
 clone_number_df_sum %>% filter(raw_clonotype_id != "clonotype3") %>% filter((total_Acells + total_Gcells) >= 2) %>% 

@@ -48,12 +48,71 @@ so$m7076 <- so@meta.data %>%mutate(assign = case_when(
   TRUE ~ "heteroplasmic"
 )) %>% pull(assign)
 
-DimPlot(so, label = TRUE, group.by = c("seurat_clusters"), split.by = "m7076")
-FeaturePlot(so, c("KLRD1", "GZMK", "SELL", "TNFRSF18", "FCGR3A"))
+tcrs <- fread("../data/T-PBMCs_TCR_29March2021-all_contig_annotations.csv") %>%
+  filter(high_confidence == TRUE & exact_subclonotype_id == 1)
 
-FindMarkers(so, "5", "2")
+vec <- tcrs$raw_clonotype_id; names(vec) <- tcrs$barcode
+so$clonotype <- (vec)[colnames(so)]
+so$ct1 <- so$clonotype == "clonotype1"
+so$ct2 <- so$clonotype == "clonotype2"
 
-so@meta.data %>% group_by(m7076, seurat_clusters) %>% summarize(count = n()) %>%
+p1 <- DimPlot(so[,so@meta.data$m7076%in% c("m7076A", "m7076G")],
+        label = TRUE, group.by = c("seurat_clusters"), split.by = "m7076") &
+  theme_void() &
+  theme(legend.position = "none")  & ggtitle("")
+cowplot::ggsave2(p1, file= "../plots/umap_split_recluster.png", width = 8, height = 4, dpi = 500)
+
+###########3
+p2 <- DimPlot(so, label = FALSE, group.by = c("ct1", "ct2")) &
+  scale_color_manual(values = c("dodgerblue3", "firebrick")) &
+  theme_void() &
+  theme(legend.position = "none")  & ggtitle("")
+cowplot::ggsave2(p2, file= "../plots/umap_split_clonotype.png", width = 8, height = 4, dpi = 500)
+
+#########3
+so@meta.data %>%
+  group_by(seurat_clusters, clonotype) %>% 
+  summarize(count = n()) %>% arrange(desc(count)) %>% data.frame() %>% head(40)
+
+FeaturePlot(so, c("TIGIT", "GNLY", "FCGR3A"), split.by = "m7076")
+FeaturePlot(so, c("TRBV5-4", "C1orf162"), split.by = "m7076")
+
+Idents(so) <- "m7076"
+fm2 <- FindMarkers(so[,so$seurat_clusters==2], "m7076A", "m7076G", logfc.threshold = 0.1)
+fm6 <- FindMarkers(so[,so$seurat_clusters==6], "m7076A", "m7076G", logfc.threshold = 0.1)
+
+fm2
+
+oo <- FindMarkers(so[,so$predicted.celltype.l2=="CD8 TEM" & !(so$clonotype %in% c("clonotype1", "clonotype1"))], "m7076A", "m7076G", logfc.threshold = 0.1)
+
+oo[c("IL7R", "KIR3DL1","KLRD1"),]
+
+so@meta.data %>% 
+  filter(predicted.celltype.l2 == "CD8 TEM") %>%
+  group_by(m7076, seurat_clusters) %>% summarize(count = n()) %>%
   filter(m7076 %in% c("m7076A", "m7076G")) %>% ungroup() %>% reshape2::dcast(seurat_clusters~m7076, fill = "count") %>%
   data.frame() %>%
   mutate(log2_GA = round(log2(as.numeric(m7076G)/as.numeric(m7076A)), 2))
+
+DimPlot(so,group.by =  c('seurat_clusters',"predicted.celltype.l2"), label = TRUE)
+
+new_filtered_df <- so@meta.data %>%
+  dplyr::filter(m7076 %in% c("m7076A", "m7076G")) %>%
+  filter(!(clonotype %in% c("clonotype1", "clonotype2"))) %>%
+  group_by(predicted.celltype.l2) %>%
+  summarize(mean7076a_g=mean(heteroplasmy), cell_count = n()) %>%
+  filter(cell_count > 180) %>%
+  data.frame()
+
+p1 <- new_filtered_df %>%
+  arrange(desc(mean7076a_g)) %>%
+  mutate(rank = 1:n())  %>%
+  ggplot(aes(x = predicted.celltype.l2, y = mean7076a_g, size = cell_count)) +
+  geom_point() + pretty_plot(fontsize = 8) + L_border() +
+  labs(x = "", y = "mean 7076A>G%") + scale_y_continuous(limits = c(24, 60)) +
+  theme(axis.text.x = element_text(angle = 45, hjust=1)) +
+  scale_size_continuous(range = c(0.3,2.5))
+
+p1
+
+cowplot::ggsave2(p1, file = "../plots/Heteroplasmy_nobigclones.pdf",  width = 3, height = 1.8)
