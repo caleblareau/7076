@@ -129,16 +129,17 @@ all_diff_df[!grepl("^TR", all_diff_df$gene),] %>%
 # look at top genes that aren't TCR genes
 pV <- all_diff_df[!grepl("^TR", all_diff_df$gene),]
 
-all_diff_df[!grepl("^TR", all_diff_df$gene),] %>% 
+pV <- all_diff_df[!grepl("^TR", all_diff_df$gene),] %>% 
   dplyr::filter(celltype %in% c("CD8 TEM", "CD8 Naive")) %>%
   arrange(p_val_adj) %>%
   ggplot(aes(x = avg_log2FC, y = -log10(p_val_adj), color = celltype, label = gene)) +
   pretty_plot(fontsize = 8) + theme(legend.position = "none") +
-  geom_text() + facet_wrap(~celltype) +
+  geom_point() + facet_wrap(~celltype) +
+  scale_x_continuous(limits = c(-1.1, 1.1)) +
   scale_color_manual(values = jdb_palette("corona")[c(4,1)])
 
 
-#cowplot::ggsave2(pV, file = "../plots/DEvolcanoes_exansion.pdf", width = 4.1, height = 2)
+cowplot::ggsave2(pV, file = "../plots/DEvolcanoes_exansion_symmetry.pdf", width = 4.1, height = 2)
 
 
 

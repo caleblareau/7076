@@ -45,7 +45,7 @@ process_stats_syn_type2 <- function(df){
 filter_for_Gbois <- function(df){
   df %>% filter(Amino.acids %in% c("I", "F","C", "S")) %>%
     filter(!(Amino.acids == "S") | grepl("GCU", Reference.tRNA)) %>% #refine serine; either matches another AA or has the right anticodon
-  count_me
+    count_me
 }
 
 filter_for_tau <- function(df){
@@ -68,32 +68,45 @@ filter_for_Q34 <- function(df){
     count_me
 }
 
-filter_for_super_wobble(cancer_merge_df)
-filter_for_super_wobble(annotations)
+classes_df <- rbind(
+  filter_for_super_wobble(cancer_merge_df) %>% mutate(class = "uracil", what = "obs."),
+  filter_for_super_wobble(annotations) %>% mutate(class = "uracil", what = "exp."),
+  
+  filter_for_Gbois(cancer_merge_df) %>% mutate(class = "guanine", what = "obs."),
+  filter_for_Gbois(annotations) %>% mutate(class = "guanine", what = "exp."),
+  
+  filter_for_Q34(cancer_merge_df) %>% mutate(class = "queuosine", what = "obs."),
+  filter_for_Q34(annotations) %>% mutate(class = "queuosine", what = "exp."),
+  
+  filter_for_tau(cancer_merge_df) %>% mutate(class = "taurine-uracil", what = "obs."),
+  filter_for_tau(annotations) %>% mutate(class = "taurine-uracil", what = "exp.")
+)
 
-filter_for_Gbois(cancer_merge_df)
-filter_for_Gbois(annotations)
+p1 <- ggplot(classes_df, aes(y = perc, x = what, fill = syn_annotation)) + 
+  geom_bar(stat = "identity", color = "black") + facet_grid(~class) +
+  scale_fill_manual(values = jdb_palette("corona")[1:4] ) +
+  pretty_plot(fontsize = 7) +
+  scale_y_continuous(expand = c(0,0)) + 
+  theme(legend.position = "none") + labs(x = "", y = '% of synonymous mutations')
+cowplot::ggsave2(p1, file = "../output/split_classes.pdf", width = 4.2, height = 1.8)
 
-filter_for_Q34(cancer_merge_df)
-filter_for_Q34(annotations)
+# do statistical tests 
+get_pvalue <- function(class_x){
+  classes_df %>%
+    filter(class == class_x) %>%
+    data.frame %>% 
+    reshape2::dcast(.,formula = syn_annotation ~ what, value.var = "count") %>%
+    dplyr::select(observed,expected) %>% data.matrix() %>% chisq.test() %>% str
+}
+get_pvalue ("guanine")
+get_pvalue ("uracil")
+get_pvalue ("queuosine")
+get_pvalue ("taurine-uracil")
 
-filter_for_tau(cancer_merge_df)
-filter_for_tau(annotations)
 
 
+#######
 
-cancer_aa_df <- cancer_merge_df %>% filter(syn_annotation == "WCF_to_Wobble") %>% 
-  group_by(Amino.acids) %>% summarize(count = n()) %>% mutate(pct = count / sum(count)*100) 
-
-data.frame(
-  anno_aa_df,
-  cancer_aa_df
-) %>%
-  mutate(color = Amino.acids %in% c("G", "R", "A", "T", "P", "S", "V","L")) %>%
-  ggplot(aes( x = pct, y = pct.1, label = Amino.acids, color = color))+
-  geom_text()+
-  labs(x = "%Total possible WCF-> Wobble", y = "%Observed in cancer tumors WCF -> Wobble") +
-  geom_abline(intercept = 0, slope = 1, linetype = 2) + pretty_plot() + L_border()
 
 
 # Import the GWAS data to do some combined analyses

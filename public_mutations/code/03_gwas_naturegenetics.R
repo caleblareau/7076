@@ -27,19 +27,25 @@ assoc_2 %>%
   mutate(is_sig = count > 0) %>%
   group_by(is_sig, is_syn) %>% summarize(count = n())
 
-177/(72+177)
-61/(61 + 37)
+assoc_2 %>%
+  mutate(fdr_sig = FDR < 0.05) %>%
+  group_by(fdr_sig, is_syn) %>% summarize(count = sum(fdr_sig)) 
+
 
 # Merge the two and look at FDR < 0.05 hits (how significance has been previously defined)
 mdf <- merge(assoc, annotations, by = "mutation") %>% arrange(FDR)
 mdf %>%
-  mutate(fdr_sig = FDR < 0.05) %>%
-  group_by(mutation, syn_annotation, Consequence) %>% summarize(count = sum(fdr_sig)) %>%
+  filter( FDR < 0.05) %>%
+  group_by( syn_annotation) %>%
+  summarize(count = n())
+
+
   mutate(is_sig = count > 0) %>%
   group_by(is_sig, syn_annotation, Consequence) %>% summarize(count = n())
 
 
 
+prop.test(4,170, 0.0421)
 # Count and compare
 count_me(mdf %>% filter(FDR < 0.05)  )
 count_me(annotations)
@@ -86,29 +92,3 @@ kdf20 <- kdf %>%
 # Look at what recurrent phenotypes we have
 kdf05[,c("mutation", "Consequence")]%>% group_by(mutation, Consequence) %>%
   summarize(count =n ()) %>% pull(Consequence) %>% table()
-
-# Look at the patterns of mutations of interest
-kdf20[grepl("\\*",kdf20$Reference.tRNA) & grepl("near",kdf20$Variant.tRNA)  ,] %>%
-  filter(Consequence == "synonymous_variant") %>%
-  arrange(Effect.size)
-
-kdf05[grepl("\\*",kdf05$Reference.tRNA) & grepl("near",kdf05$Variant.tRNA)  ,] %>%
-  filter(Consequence == "synonymous_variant") %>%
-  arrange(Effect.size)
-
-kdf05[grepl("\\*",kdf05$Variant.tRNA) & grepl("near",kdf05$Reference.tRNA)  ,] %>%
-  filter(Consequence == "synonymous_variant") %>%
-  arrange(Effect.size)
-
-kdf05[grepl("near",kdf05$Reference.tRNA) & grepl("near",kdf05$Variant.tRNA)  ,] %>%
-  filter(Consequence == "synonymous_variant") %>%
-  arrange(Effect.size)
-
-
-kdf05[grepl("\\*",kdf05$Reference.tRNA) & grepl("\\*",kdf05$Variant.tRNA)  ,] %>%
-  filter(Consequence == "synonymous_variant") %>%
-  arrange(Effect.size)
-
-kdf05[,c("Trait", "Consequence")]%>% filter(Consequence == "synonymous_variant") %>%
-  group_by(Trait) %>% summarize(count = n()) %>% arrange(desc(count))
-
