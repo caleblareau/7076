@@ -12,7 +12,7 @@ anno_aa_df <- annotations %>% filter(syn_annotation == "WCF_to_Wobble") %>%
   group_by(Amino.acids) %>% summarize(count = n()) %>% mutate(pct = count / sum(count)*100) 
 
 
-# Import Phewas associations
+# Import cancer associations
 impact <- fread("../data/cancer/data_mutations_impact.txt.gz") %>%
   filter(Variant_Type == "SNP") %>%
   mutate(mutation = ShortVariantID)
@@ -25,15 +25,69 @@ pcawg <- fread("../data/cancer/data_mutations_pcawg.txt.gz") %>%
   filter(Variant_Type == "SNP") %>%
   mutate(mutation = paste0(Reference_Allele, Start_Position, Tumor_Seq_Allele2))
 
+# define 2 different data frames
 data.frame(
   mutation = c(impact$mutation, tcga$mutation, pcawg$mutation) 
-) %>%
+) -> all_mut_df 
+all_mut_df$count_tumors = 1
+all_mut_df %>%
   group_by(mutation) %>% summarize(count_tumors = n()) -> cancer_count_df
 
 # Merge the two and look at FDR < 0.05 hits (how significance has been previously defined)
-cancer_merge_df <- merge(cancer_count_df, annotations, by.x = "mutation",  by.y = "mutation") %>% arrange(desc(count_tumors))
-table(cancer_merge_df$syn_annotation)
+cancer_merge_df_unique <- merge(cancer_count_df, annotations, by.x = "mutation",  by.y = "mutation") %>% arrange(desc(count_tumors))
+cancer_merge_df_all <- merge(all_mut_df, annotations, by.x = "mutation",  by.y = "mutation") %>% arrange(desc(count_tumors))
 
+######################
+make_cancer_df <- function(vec, unique = TRUE){
+  mdf <- merge(data.frame(mutation = vec), annotations, by.x = "mutation",  by.y = "mutation")
+  if(unique){
+    mdf %>% group_by(mutation) %>% summarize(count_tumors = n()) -> cancer_count_df 
+  } else{
+    
+  }
+    
+}
+
+process_stats_syn_type <- function(df){
+  cm_a <- count_me(annotations)
+  cm_t <- count_me(df)
+  cm_t$all_perc <- cm_a$perc
+  cm_t$pvalue <- c(prop.test(cm_t$count[1], sum(cm_t$count), p = cm_a$perc[1] / 100)$p.value,
+                   prop.test(cm_t$count[2], sum(cm_t$count), p = cm_a$perc[2] / 100)$p.value,
+                   prop.test(cm_t$count[3], sum(cm_t$count), p = cm_a$perc[3] / 100)$p.value,
+                   prop.test(cm_t$count[4], sum(cm_t$count), p = cm_a$perc[4] / 100)$p.value)
+  cm_t
+  
+}
+
+process_stats_syn_type(cancer_merge_df_all)
+process_stats_syn_type(cancer_merge_df_unique)
+
+# PLOT 1
+# Relative frequencies of each class
+cm_c <- process_stats_syn_type(make_cancer_df(c(impact$mutation, tcga$mutation, pcawg$mutation)))
+
+cm_c$cohort <- ""
+
+# Now compute them individually
+impact_df_count <- process_stats_syn_type(make_cancer_df(c(impact$mutation))); impact_df_count$cohort <- "impact"
+tcga_df_count <- process_stats_syn_type(make_cancer_df(c(tcga$mutation))); tcga_df_count$cohort <- "tcga"
+pcawg_df_count <- process_stats_syn_type(make_cancer_df(c(pcawg$mutation))); pcawg_df_count$cohort <- "pcawg"
+all_df_count <- rbind(impact_df_count, tcga_df_count, pcawg_df_count)
+all_df_count
+
+library(ggbeeswarm)
+p1bar <- ggplot(all_df_count, aes(x = syn_annotation, y = perc, fill = syn_annotation, shape = cohort)) +
+  geom_bar(data = cm_c, stat = "identity", position = "dodge", color = "black",) +
+  geom_quasirandom() + scale_shape_manual(values=c(0, 1, 2,3))+
+  scale_fill_manual(values = jdb_palette("corona")[1:4] )+
+  pretty_plot(fontsize = 8) + L_border() + scale_y_continuous(expand = c(0,0), limits = c(0,45))+ 
+  labs(x = "", y = "% of synonymous mtDNA variants") + theme(legend.position = "none")
+p1bar
+cowplot::ggsave2(p1bar, file = "../output/freqs_syn_type.pdf", width = 2, height = 1.5)
+
+
+#######################3
 
 process_stats_syn_type2 <- function(df){
   cm_t <- count_me(df)
@@ -106,62 +160,6 @@ get_pvalue ("taurine-uracil")
 
 
 #######
-
-
-
-# Import the GWAS data to do some combined analyses
-assoc <- readxl::read_xlsx("../data/MitoPhewas_associations.xlsx", 1) %>% data.frame()
-assoc$mutation <- paste0(toupper(assoc$Allele1), assoc$Position,  toupper(assoc$Allele2))
-
-# Merge the two and look at FDR < 0.05 hits (how significance has been previously defined)
-gwas_raw <- merge(assoc, annotations, by = "mutation") %>% arrange(FDR) %>% filter(FDR < 0.05)
-
-# count only each gwas variant once
-gwas <- gwas_raw %>% group_by(Consequence, Symbol, mutation, syn_annotation) %>% summarize(count = n())
-
-make_cancer_df <- function(variant_set){
-  data.frame(
-    mutation = c(variant_set) 
-  ) %>%
-    group_by(mutation) %>% summarize(count_tumors = n()) -> cancer_count_df2
-  cancer_merge_df2 <- merge(cancer_count_df2, annotations, by.x = "mutation",  by.y = "mutation") %>% arrange(desc(count_tumors))
-  cancer_merge_df2
-}
-
-process_stats_syn_type <- function(df){
-  cm_a <- count_me(annotations)
-  cm_t <- count_me(df)
-  cm_t$all_perc <- cm_a$perc
-  cm_t$pvalue <- c(prop.test(cm_t$count[1], sum(cm_t$count), p = cm_a$perc[1] / 100)$p.value,
-                   prop.test(cm_t$count[2], sum(cm_t$count), p = cm_a$perc[2] / 100)$p.value,
-                   prop.test(cm_t$count[3], sum(cm_t$count), p = cm_a$perc[3] / 100)$p.value,
-                   prop.test(cm_t$count[4], sum(cm_t$count), p = cm_a$perc[4] / 100)$p.value)
-  cm_t
-  
-}
-# PLOT 1
-# Relative frequencies of each class
-cm_g <- process_stats_syn_type(gwas)
-cm_c <- process_stats_syn_type(make_cancer_df(c(impact$mutation, tcga$mutation, pcawg$mutation)))
-
-cm_c$cohort <- ""
-
-# Now compute them individually
-impact_df_count <- process_stats_syn_type(make_cancer_df(c(impact$mutation))); impact_df_count$cohort <- "impact"
-tcga_df_count <- process_stats_syn_type(make_cancer_df(c(tcga$mutation))); tcga_df_count$cohort <- "tcga"
-pcawg_df_count <- process_stats_syn_type(make_cancer_df(c(pcawg$mutation))); pcawg_df_count$cohort <- "pcawg"
-all_df_count <- rbind(impact_df_count, tcga_df_count, pcawg_df_count)
-all_df_count
-
-library(ggbeeswarm)
-p1bar <- ggplot(all_df_count, aes(x = syn_annotation, y = perc, fill = syn_annotation, shape = cohort)) +
-  geom_bar(data = cm_c, stat = "identity", position = "dodge", color = "black",) +
-  geom_quasirandom() + scale_shape_manual(values=c(0, 1, 2,3))+
-  scale_fill_manual(values = jdb_palette("corona")[1:4] )+
-  pretty_plot(fontsize = 8) + L_border() + scale_y_continuous(expand = c(0,0), limits = c(0,45))+ 
-  labs(x = "", y = "% of synonymous mtDNA variants") + theme(legend.position = "none")
-p1bar
-cowplot::ggsave2(p1bar, file = "../output/freqs_syn_type.pdf", width = 2, height = 1.5)
 
 # Focus on WCF to Wobble 
 cancer_genes <- cancer_merge_df %>% filter(syn_annotation == "WCF_to_Wobble") %>%
