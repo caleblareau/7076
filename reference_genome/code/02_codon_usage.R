@@ -26,7 +26,8 @@ table(raw$Organelle)
 mito <- raw %>% filter(Organelle == "mitochondrion") %>% data.frame()
 nuclear <- raw %>% filter(Organelle == "genomic")%>% data.frame()
 
-# Compute fraction of 
+
+# Compute fraction of codons attributable to wcf 
 mito_melt <- reshape2::melt(mito[,12:75])
 
 wcf_codons <- codon_annotation_mito %>% filter(AA.matchbool == "*") %>%
@@ -35,6 +36,13 @@ mito_melt %>% pull(value) %>% sum() #3802 codons
 mito_melt %>% filter(variable %in% wcf_codons) %>% pull(value) %>% sum() #1976 codons
 
 (3802-1976)/3802 # 48% of codons require wobble effect
+
+# Look at individual genes
+data.frame(
+  gene = mito$Symbol,
+  pct_wcf = rowSums(mito[,wcf_codons])/rowSums(mito[,codon_order])
+) %>% arrange(desc(pct_wcf))
+
 
 # Plotting stuff
 compute_count_bias <- function(df, codon_annotation_df){

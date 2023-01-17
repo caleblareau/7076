@@ -10,10 +10,6 @@ annotations <- fread("../data/functional_variant_tRNA_anticodon_table.tsv") %>% 
 annotations$mutation <- paste0("m", annotations$Position, annotations$Reference, ">", annotations$Variant)
 annotations$syn_annotation <- annotate_synonomous(annotations)
 
-annotations[,c("mutation","Position", "Reference", "Variant", "Symbol", "Codons", "Reference.tRNA","Variant.tRNA","syn_annotation")] %>%
-  filter(!(syn_annotation == "other")) %>%
-  write.table("../output/syn-table-for-ryan.csv", sep = ",", quote = FALSE, row.names = FALSE, col.names = TRUE)
-
 # Import Phewas associations
 assoc <- readxl::read_xlsx("../data/MitoPhewas_associations.xlsx", 1) %>% data.frame()
 assoc$mutation <- paste0("m", assoc$Position, toupper(assoc$Allele1),">",toupper(assoc$Allele2))
@@ -54,7 +50,6 @@ count_me(annotations %>% filter(Disease != "-"))
 mdf %>% filter(FDR < 0.05) %>% filter(syn_annotation!= "other") %>%
   arrange(desc(syn_annotation)) %>% filter(abs(Effect.size)>1) %>% 
   arrange(desc(Effect.size))
-  pull(Effect.size) %>% summary()
 
 annotations %>% filter(Disease != "-") %>% filter(syn_annotation != "other") %>%
   arrange(syn_annotation)

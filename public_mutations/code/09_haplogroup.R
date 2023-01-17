@@ -10,6 +10,9 @@ annotations <- fread("../data/functional_variant_tRNA_anticodon_table.tsv") %>% 
 annotations$id <- paste0(annotations$Position, annotations$Variant)
 annotations$syn_annotation <- annotate_synonomous(annotations)
 
+# Data from here:
+# https://github.com/seppinho/haplogrep-cmd/tree/master/src/main/resources
+# Last column is number of genomes
 haplo <- fread("../data/haplogrep.data.txt")  %>% 
   filter(V6 >= 10)
 haplo$id <- gsub("!", "", haplo$V1)
