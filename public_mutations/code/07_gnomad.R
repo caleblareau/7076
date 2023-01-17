@@ -20,7 +20,9 @@ mdf <- merge(simple_gnomad, annotations, by = "id")
 gnomad_het <- mdf %>% filter(n_het >=1)
 gnomad_homo <- mdf %>% filter(n_homo >=1)
 gnomad_homo_rare <- mdf %>% filter(n_homo >=1 & n_homo < 100)
-gnomad_homo_common <- mdf %>% filter( n_homo > 100)
+gnomad_homo_any <- mdf %>% filter(n_homo >=1 )
+
+gnomad_homo_common <- mdf %>% filter( n_homo >= 100)
 
 process_stats_syn_type <- function(df){
   cm_a <- count_me(annotations)
@@ -39,9 +41,10 @@ process_stats_syn_type2 <- function(df){
   cm_t
   
 }
+process_stats_syn_type(gnomad_homo_common)
 
 process_stats_syn_type(gnomad_homo_rare)
-process_stats_syn_type(gnomad_homo_common)
+process_stats_syn_type(gnomad_homo_any)
 
 
 # Make it continuous
@@ -53,23 +56,24 @@ count_me_gnomad_cutoff <- function(df, cutoff = 1){
     group_by(syn_annotation) %>%
     summarize(count = n()) %>%
     tidyr::complete(syn_annotation, fill = list(count = 0)) %>%
-    mutate(perc = count/sum(count)*100) %>%
-    filter(syn_annotation == "Wobble_to_Wobble") %>%
-    pull(perc)
+    mutate(perc = count/sum(count)*100) 
 }
 
-lapply(c(1:10, 15, 20, 30, 40, 50, 75, 100, 150, 200,  300, 400, 500), function(threshold){
-  data.frame(n_carriers = threshold, propWobbleToWCF = count_me_gnomad_cutoff(mdf, threshold))
-}) %>% rbindlist() %>%
-  ggplot(aes(x = n_carriers, y = propWobbleToWCF)) + 
-  geom_hline(yintercept = 22, linetype = 2) +
-  geom_line(color = "green3") + 
+lapply(c(1:10, 15, 20, 30, 40, 50, 75, 100, 200,  300, 400, 500), function(threshold){
+  count_me_gnomad_cutoff(mdf, threshold) %>% mutate(n_carriers = threshold)
+}) %>% rbindlist() -> all_df
+
+all_df %>% 
+  ggplot(aes(x = n_carriers, y = perc, color = syn_annotation)) + 
+  geom_line() + 
   scale_x_log10() + 
   geom_point() +
-  scale_y_continuous(limits = c(15,45)) +
-  pretty_plot() + L_border() +
-  labs(x = "Number of carriers of homoplasmic variant",
-       y = "% Wobble --> WCF")
+  geom_hline(data = process_stats_syn_type(annotations), aes(yintercept = perc), linetype = 2) +
+  facet_wrap(~syn_annotation, scales = "free_y", nrow = 1) +
+  pretty_plot(fontsize = 8) +scale_color_manual(values = jdb_palette("corona"))+
+  labs(x = "Minimum # of carriers of homoplasmic variant in gnomAD",
+       y = "% of synonymous variants") + theme(legend.position = "none") -> p1
+cowplot::ggsave2(p1, file = "../output/trends_gnomad_cutoff.pdf", width = 6, height = 1.6)
 
 
 
