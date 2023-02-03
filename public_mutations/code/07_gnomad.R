@@ -56,25 +56,33 @@ count_me_gnomad_cutoff <- function(df, cutoff = 1){
     group_by(syn_annotation) %>%
     summarize(count = n()) %>%
     tidyr::complete(syn_annotation, fill = list(count = 0)) %>%
-    mutate(perc = count/sum(count)*100) 
+    mutate(perc = count/sum(count)*100) %>%
+    mutate(null = process_stats_syn_type(annotations)[["perc"]]) %>%
+    mutate(ratio = perc / null, diff = perc - null)
 }
 
-lapply(c(1:10, 15, 20, 30, 40, 50, 75, 100, 200,  300, 400, 500), function(threshold){
+lapply(c(1:10, 15, 20, 30, 40, 50, 75, 100, 150, 200,  300, 400, 500), function(threshold){
   count_me_gnomad_cutoff(mdf, threshold) %>% mutate(n_carriers = threshold)
 }) %>% rbindlist() -> all_df
 
+Kendall::MannKendall(all_df %>% filter(syn_annotation == "Wobble_to_WCF") %>% pull(diff))
+
+
 all_df %>% 
-  ggplot(aes(x = n_carriers, y = perc, color = syn_annotation)) + 
+  ggplot(aes(x = n_carriers, y = (diff), color = syn_annotation)) + 
   geom_line() + 
   scale_x_log10() + 
   geom_point() +
-  geom_hline(data = process_stats_syn_type(annotations), aes(yintercept = perc), linetype = 2) +
-  facet_wrap(~syn_annotation, scales = "free_y", nrow = 1) +
-  pretty_plot(fontsize = 8) +scale_color_manual(values = jdb_palette("corona"))+
+  geom_hline(data = process_stats_syn_type(annotations) %>% mutate(diff = 0), aes(yintercept = diff), linetype = 2) +
+  scale_y_continuous(limits = c(-20, 20)) +
+ # facet_wrap(~syn_annotation, nrow = 1) + # scales = "free_y", 
+  pretty_plot(fontsize = 7) +scale_color_manual(values = jdb_palette("corona"))+
   labs(x = "Minimum # of carriers of homoplasmic variant in gnomAD",
        y = "% of synonymous variants") + theme(legend.position = "none") -> p1
-cowplot::ggsave2(p1, file = "../output/trends_gnomad_cutoff.pdf", width = 6, height = 1.6)
+p1
+cowplot::ggsave2(p1, file = "../output/trends_gnomad_cutoff_constantY.pdf", width = 6, height = 2)
 
+cowplot::ggsave2(p1, file = "../output/trends_gnomad_cutoff_constantY_nofacet.pdf", width = 1.6, height = 1.5)
 
 
 # Make it continuous
